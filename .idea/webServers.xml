@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5268802a-622d-4202-a1b7-ea41d81eaf9d" name="Alla2" url="http://www.zzz.com.ua">
+        <fileTransfer host="www.zzz.com.ua" port="21" rootFolder="/alluska67.zzz.com.ua/">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

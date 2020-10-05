@@ -1,0 +1,18 @@
+        <?php
+        if(mysqli_num_rows($result)){
+            echo '<div class="all_comments"> Total comments :' .mysqli_num_rows($result) . '</div><br>';
+            $i = 0;
+            while($row = mysqli_fetch_assoc($result)){
+                echo '<div class="comments_text">Comment# ' . (int)++$i .' '. nl2br(htmlspecialchars($row['name'])).' '. $row['date'].'<br>' .htmlspecialchars($row['text']).'</div><br>';
+            }
+        } else{
+            echo 'Комментарии отсутствуют';
+        }
+        ?>
+
+
+define('DB_NAME','main');
+define('DB_LOGIN','test123');
+define('DB_PASS','DYZxE4GFWtecz4Nl');
+define('DB_LOCAL','localhost');
+

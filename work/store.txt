@@ -1,0 +1,20 @@
+name - название товара
+vendor_code - код товара
+availability - наличие товара
+description - описание товара
+price - цена
+reviews - отзывы о товаре
+
+delivery - доставка
+
+
+
+работа с select:
+      <select class="border_thin" name="category">
+        <option value="<?=$row['category'];?>" ><?=htmlspecialchars($goods_category[$row['category']]); ?></option>
+        <?php foreach ($goods_category as $k => $v) { ?>
+          <?php if($k == $row['category']) { continue; } ?>
+          <option value="<?=$k; ?>" ><?=$v; ?></option>
+        <?php } ?>
+        <?php echo @$errors ['category'] ;?>
+      </select>

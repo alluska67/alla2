@@ -1,0 +1,393 @@
+
+Date: 2020-07-10 12:22:04 File: W:\domains\alla2\modules\cab\authorization.php on line:28 Query: 
+                UPDATE `users` SET
+                `hash` = $2y$10$tnPy6FdWz1js8PahId5E7O5kccelqOH82vNf5KdwajKhg0AaFjAQ2;
+                WHERE `id` = 0
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 0' at line 3
+
+
+
+Date: 2020-07-10 12:22:53 File: W:\domains\alla2\modules\cab\authorization.php on line:29 Query: 
+                UPDATE `users` SET
+                `hash` = $2y$10$pZQDssVPeyBqTadWG7yLWeLNK/329Mr9PpVWxZufOZNMaq8fghymW;
+                WHERE `id` = 0
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 0' at line 3
+
+
+
+Date: 2020-07-10 12:23:33 File: W:\domains\alla2\modules\cab\authorization.php on line:29 Query: 
+                UPDATE `users` SET
+                `hash` = $2y$10$sV8b92cHyaFUwyDe9p9zQ.Wwe2de0qCLfKW2Dj4aLpK1pt4eWOeda;
+                WHERE `id` = 0
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 0' at line 3
+
+
+
+Date: 2020-07-10 12:23:44 File: W:\domains\alla2\modules\cab\authorization.php on line:29 Query: 
+                UPDATE `users` SET
+                `hash` = $2y$10$AiuF0MeyzKozPqFnLIZmo.FBTnJi2J38hexOfceXhnAYb0ftYSdEi;
+                WHERE `id` = 0
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 0' at line 3
+
+
+
+Date: 2020-07-10 12:25:00 File: W:\domains\alla2\modules\cab\authorization.php on line:29 Query: 
+                UPDATE `users` SET
+                `hash` = $2y$10$sVxd3ODHHUYFAVNU6vPSLObjxmKvYcdf1oUcpp5fFTL.leSbBgAjq;
+                WHERE `id` = 0
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 0' at line 3
+
+
+
+Date: 2020-07-10 12:25:25 File: W:\domains\alla2\modules\cab\authorization.php on line:29 Query: 
+                UPDATE `users` SET
+                `hash` = $2y$10$C.liqHYXghbP8RsrxIDNk.hziNNrRVCU76etk79oZMt8Yc2vvu1nW;
+                WHERE `id` = 0
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 0' at line 3
+
+
+
+Date: 2020-07-10 12:26:00 File: W:\domains\alla2\modules\cab\authorization.php on line:29 Query: 
+                UPDATE `users` SET
+                `hash` = $2y$10$5gvQeFCOyEFXDIdYOv7K8Oe8bIuOWlnSanpY/XO/pSknmIPs5WHie;
+                WHERE `id` = 73
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 73' at line 3
+
+
+
+Date: 2020-07-10 12:26:30 File: W:\domains\alla2\modules\cab\authorization.php on line:29 Query: 
+                UPDATE `users` SET
+                `hash` = $2y$10$DOBAbsobZHdUwiIlWLQFUe18ml9lYXP/04zzeS1XRGWubjECscuNG
+                WHERE `id` = 73
+            Unknown column '$2y$10$DOBAbsobZHdUwiIlWLQFUe18ml9lYXP' in 'field list'
+
+
+
+Date: 2020-07-10 13:07:18 File: W:\domains\alla2\modules\allpages.php on line:22 Query: 
+            SELECT *
+            FROM `users`
+
+//            WHERE `hash` = ''
+            LIMIT 1
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '//            WHERE `hash` = ''
+            LIMIT 1' at line 4
+
+
+
+Date: 2020-07-10 14:05:45 File: W:\domains\alla2\modules\allpages.php on line:18 Query: 
+        SELECT *
+        FROM `users`
+        WHERE `hash` = 
+    
+    
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+
+
+
+Date: 2020-07-10 14:55:39 File: W:\domains\alla2\modules\cab\registration.php on line:53 Query: 
+            INSERT INTO `users` SET
+            `login`   = 'alla',
+            `password`= '$2y$10$iPfsMblOBxTrZPXOJrIN.OGxCm9dKQSWp2LJBlwuFf8k9rnyCClM6',
+            `email`   = 'alluska67@gmail.com',
+            `age`     =  0,
+            `hash`    = '$2y$10$NU0pWxEBuyCR6hsxVEWpWeVb/PRtrhpX3Uz5PPUOBI7t1IbVADbQW',
+
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6
+
+
+
+Date: 2020-07-10 14:56:34 File: W:\domains\alla2\modules\cab\registration.php on line:53 Query: 
+            INSERT INTO `users` SET
+            `login`   = 'alla',
+            `password`= '$2y$10$/tkGXWFQc9gIjUw4vIfCdedaF.zCBkOw14mOD3Zp2vnJvznW3kVsu',
+            `email`   = 'alluska67@gmail.com',
+            `age`     =  0,
+            `hash`    = '$2y$10$9yPQ5G7UiTV0KKBGNJVsv..mjzF7UayAKVunD1yKN2j81aZz0f9si',
+
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6
+
+
+
+Date: 2020-07-10 14:58:29 File: W:\domains\alla2\modules\cab\authorization.php on line:27 Query: 
+                UPDATE `users` SET
+                `hash` = '$2y$10$XXA17580hK57Q6uS5iKFrORpgmpKXHwNGepHbe.6AoCnCqkU2D5V6'
+                `ip`      = '127.0.0.1',
+                `browser` = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+                WHERE `id` = 79
+                
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`ip`      = '127.0.0.1',
+                `browser` = 'Mozilla/5.0 (Windows NT 1' at line 3
+
+
+
+Date: 2020-07-10 14:59:43 File: W:\domains\alla2\modules\cab\authorization.php on line:27 Query: 
+                UPDATE `users` SET
+                `hash` = '$2y$10$O.E21ajG3Bgof2t8loA9E.we3zV5AIvO6IQWYHfFyBMdUZl.KNEqi',
+                `ip`      = '127.0.0.1',
+                `browser` = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
+                WHERE `id` = 79
+                
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 79' at line 5
+
+
+
+Date: 2020-07-10 15:51:14 File: W:\domains\alla2\modules\allpages.php on line:23 Query: 
+        SELECT *
+        FROM `users`
+//        WHERE `hash` = '$hash'
+
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '//        WHERE `hash` = '$hash'' at line 3
+
+
+
+Date: 2020-07-22 14:23:23 File: W:\domains\alla2\modules\admin\goods\main.php on line:12 Query: 
+        DELETE FROM `goods`
+        WHERE `id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 2
+
+
+
+Date: 2020-07-22 14:30:44 File: W:\domains\alla2\modules\admin\goods\main.php on line:12 Query: 
+        DELETE FROM `goods`
+        WHERE `id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 2
+
+
+
+Date: 2020-07-22 15:25:58 File: W:\domains\alla2\modules\admin\goods\main.php on line:12 Query: 
+        DELETE FROM `goods`
+        WHERE `id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 2
+
+
+
+Date: 2020-07-22 15:28:09 File: W:\domains\alla2\modules\admin\goods\main.php on line:12 Query: 
+        DELETE FROM `goods`
+        WHERE `id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 2
+
+
+
+Date: 2020-07-22 15:28:30 File: W:\domains\alla2\modules\goods\main.php on line:12 Query: 
+        DELETE FROM `goods`
+        WHERE `id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 2
+
+
+
+Date: 2020-07-22 15:29:54 File: W:\domains\alla2\modules\admin\goods\main.php on line:12 Query: 
+        DELETE FROM `goods`
+        WHERE `id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 2
+
+
+
+Date: 2020-07-22 15:29:57 File: W:\domains\alla2\modules\admin\goods\main.php on line:12 Query: 
+        DELETE FROM `goods`
+        WHERE `id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 2
+
+
+
+Date: 2020-07-22 15:30:06 File: W:\domains\alla2\modules\admin\goods\main.php on line:12 Query: 
+        DELETE FROM `goods`
+        WHERE `id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 2
+
+
+
+Date: 2020-07-22 16:34:20 File: W:\domains\alla2\modules\admin\news\add.php on line:29 Query: 
+        INSERT INTO `news` SET
+        `title`        = 'gj',
+        `category`     = 'dghj',
+        `description`  = 'dgh',
+        `text`         = 'dj'
+        `date`         = NOW()
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`date`         = NOW()' at line 6
+
+
+
+Date: 2020-07-22 16:36:02 File: W:\domains\alla2\modules\goods\main.php on line:12 Query: 
+        DELETE FROM `goods`
+        WHERE `id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 2
+
+
+
+Date: 2020-09-14 13:52:09 File: W:\domains\alla2\modules\cab\main_cab.php on line:16 Query: 
+    SELECT   *
+    FROM     `users`
+    WHERE `id` = 
+    ORDER BY `id` ASC 
+     
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY `id` ASC' at line 4
+
+
+
+Date: 2020-09-15 12:07:52 File: W:\domains\alla2\modules\cab\edit.php on line:32 Query: 
+                    INSERT INTO `users` SET
+                    `avatar` = 'Array'
+                    WHERE `id` = 86
+              
+                You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 86' at line 3
+
+
+
+Date: 2020-09-15 12:09:39 File: W:\domains\alla2\modules\cab\edit.php on line:32 Query: 
+                    INSERT INTO `users` SET
+                    `avatar` = 'snow_man.jpg'
+                    WHERE `id` = 86
+              
+                You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 86' at line 3
+
+
+
+Date: 2020-09-15 12:24:28 File: W:\domains\alla2\modules\cab\edit.php on line:33 Query: 
+              INSERT INTO `users` SET 
+                `avatar` = ''
+                WHERE `id` = 86
+                
+            
+              You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 86' at line 3
+
+
+
+Date: 2020-09-15 12:25:03 File: W:\domains\alla2\modules\cab\edit.php on line:33 Query: 
+              INSERT INTO `users` SET 
+                `avatar` = '',
+                WHERE `id` = 86
+                
+            
+              You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 86' at line 3
+
+
+
+Date: 2020-09-15 12:25:41 File: W:\domains\alla2\modules\cab\edit.php on line:33 Query: 
+              INSERT INTO `users` SET 
+                `avatar` = '',
+                WHERE `id` = 86
+                
+            
+              You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 86' at line 3
+
+
+
+Date: 2020-09-24 13:28:53 File: W:\domains\alla2\modules\admin\goods\add.php on line:140 Query: 
+        INSERT INTO `goods` SET
+        `category`    = '1',                      
+        `name`        = 'впопо',
+        `vendor_code` = 'впропр',
+        `availability`= '1',
+        `description` = 'впрооп',
+        `price`       =  0,
+        `delivery`    = 'ваоо',
+        `img` = ''
+        `date`        = NOW()
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`date`        = NOW()' at line 10
+
+
+
+Date: 2020-09-24 13:30:52 File: W:\domains\alla2\modules\admin\goods\add.php on line:145 Query: 
+        INSERT INTO `goods` SET
+        `category`    = '1',                      
+        `name`        = 'dcdvgdsvgd',
+        `vendor_code` = 'yui',
+        `availability`= '1',
+        `description` = 'yll',
+        `price`       =  0,
+        `delivery`    = 'yio;yi;o',
+        `img` = ''
+        `date`        = NOW()
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`date`        = NOW()' at line 10
+
+
+
+Date: 2020-09-24 13:44:58 File: W:\domains\alla2\modules\admin\goods\add.php on line:139 Query: 
+                    INSERT INTO `goods` SET
+                    `img` = '20200924-134458mini75106.jpg'
+                    WHERE `id` = 0
+                    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 0' at line 3
+
+
+
+Date: 2020-09-28 13:08:34 File: W:\domains\alla2\modules\admin\goods\edit.php on line:69 Query: 
+        UPDATE `goods` SET
+        `category`    = '1',                         
+        `name`        = 'qqq',
+        `vendor_code` = 'd',
+        `availability`= '1',
+        `description` = 'efr',
+        `price`       =  0,
+        `delivery`    = 'sdrf',
+        `img` = ''
+       
+        `date_changed`=  NOW()
+        WHERE `id` = 85
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`date_changed`=  NOW()
+        WHERE `id` = 85' at line 11
+
+
+
+Date: 2020-09-28 15:49:15 File: W:\domains\alla2\modules\admin\goods\edit.php on line:19 Query: 
+        DELETE FROM `goods`
+        WHERE `img` =  
+          AND `id` = 89
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `id` = 89' at line 3
+
+
+
+Date: 2020-09-28 15:49:48 File: W:\domains\alla2\modules\admin\goods\edit.php on line:19 Query: 
+        DELETE FROM `goods`
+        WHERE `img` =  
+          AND `id` = 89
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `id` = 89' at line 3
+
+
+
+Date: 2020-09-28 15:49:50 File: W:\domains\alla2\modules\admin\goods\edit.php on line:19 Query: 
+        DELETE FROM `goods`
+        WHERE `img` =  
+          AND `id` = 89
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `id` = 89' at line 3
+
+
+
+Date: 2020-09-28 15:49:51 File: W:\domains\alla2\modules\admin\goods\edit.php on line:19 Query: 
+        DELETE FROM `goods`
+        WHERE `img` =  
+          AND `id` = 89
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `id` = 89' at line 3
+
+
+
+Date: 2020-09-28 15:49:52 File: W:\domains\alla2\modules\admin\goods\edit.php on line:19 Query: 
+        DELETE FROM `goods`
+        WHERE `img` =  
+          AND `id` = 89
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `id` = 89' at line 3
+
+
+
+Date: 2020-09-28 15:49:52 File: W:\domains\alla2\modules\admin\goods\edit.php on line:19 Query: 
+        DELETE FROM `goods`
+        WHERE `img` =  
+          AND `id` = 89
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `id` = 89' at line 3
+
+
+
+Date: 2020-09-28 15:50:37 File: W:\domains\alla2\modules\admin\goods\edit.php on line:118 Query: 
+        DELETE FROM `goods`
+        WHERE `img` = 20200928-142824mini96472.jpg 
+          AND `id` = 89
+    Unknown column '142824mini96472.jpg' in 'where clause'
+
+
+
+Date: 2020-09-28 15:50:51 File: W:\domains\alla2\modules\admin\goods\edit.php on line:118 Query: 
+        DELETE FROM `goods`
+        WHERE `img` = 20200928-142824mini96472.jpg 
+          AND `id` = 89
+    Unknown column '142824mini96472.jpg' in 'where clause'
+
+
