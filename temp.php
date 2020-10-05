@@ -162,6 +162,7 @@ if(trim($text) != $text) {
         echo "Не верный логин";
     }
 }
+
 */
 function wtf($array, $stop = false) {
     echo '<pre>'.print_r($array,1).'</pre>';
