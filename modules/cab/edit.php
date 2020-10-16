@@ -26,14 +26,12 @@ if (isset($_POST['name'], $_POST['last_name'],$_POST['age'],$_POST['country'],$_
     if (empty($_POST['country'])) {
         $errors ['country'] = 'Вы не указали страну проживания';
     }
-
     if (!empty($_POST['password']) && mb_strlen($_POST['password']) < 5) {
         $errors ['password'] = 'Пароль должен быть длиннее 4-х символов';
     }
     if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $errors ['email'] = 'Вы не заполнили Email';
     }
-
 
     //проверка уникальности
     if (!count($errors)) {
@@ -56,49 +54,46 @@ if (isset($_POST['name'], $_POST['last_name'],$_POST['age'],$_POST['country'],$_
         $_POST = trimAll($_POST);
 
         q("
-        UPDATE `users` SET
-        `name`       = '" . es($_POST['name']) . "', 
-        `last_name`  = '" . es($_POST['last_name']) . "',   
-        `age`        = " . (int)($_POST['age']) . ",  
-        `country`    = '" . es($_POST['country']) . "',                   
-        `password`   = '".myHash($_POST['password'])."',
-        `email`      = '" . es($_POST['email']) . "',
-        `instagram`  = '" . es($_POST['instagram']) . "',
-        `date_edited`=  NOW()
-        WHERE `id`   = ".(int)$_GET['id']."
+            UPDATE `users` SET
+            `name`       = '" . es($_POST['name']) . "', 
+            `last_name`  = '" . es($_POST['last_name']) . "',   
+            `age`        = " . (int)($_POST['age']) . ",  
+            `country`    = '" . es($_POST['country']) . "',                   
+            `password`   = '".myHash($_POST['password'])."',
+            `email`      = '" . es($_POST['email']) . "',
+            `instagram`  = '" . es($_POST['instagram']) . "',
+            `date_edited`=  NOW()
+            WHERE `id`   = ".(int)$_GET['id']."
         ");
 
-        if(isset($_FILES['file']) && $_FILES['file']['error'] != 4 ) {
+        if (isset($_FILES['file']) && $_FILES['file']['error'] != 4 ) {
 
-            $image_info =  resizeImage ($_FILES['file'],'/uploaded/avatar/');
-
-            if(isset($image_info['ok'])) {
-                $res = q("
-                    UPDATE `users` SET
-                    `avatar` = '".es($image_info['resized_name'])."'
-                    WHERE `id` = ".(int)$_GET['id']."
-                    ");
-
-                $_SESSION['info'] = 'Файл загружен!';
-                header('Location: /cab/main_cab');
-                exit();
-
-
-            }else {
-                $_SESSION['info'] = $image_info['error'] ;
+            if (!Upload::uploadImage($_FILES['file'], '/uploaded/avatar/')) {
+                $_SESSION['info'] = Upload::$info['error'] ;
                 header('Location: /cab/edit?id='.(int)$_GET['id']);
                 exit($_SESSION['info']);
             }
-        } else{
+
+            if (!Upload::resize(Upload::$path_origin,Upload::$path,Upload::$temp, 150 ,100)) {
+                $_SESSION['info'] = Upload::$info['error'] ;
+                header('Location: /cab/edit?id='.(int)$_GET['id']);
+                exit($_SESSION['info']);
+            }
+
+            $res = q("
+                UPDATE `users` SET
+                `avatar` = '".es(Upload::$name_resized)."'
+                WHERE `id` = ".(int)$_GET['id']."
+                ");
+            $_SESSION['info'] = Upload::$info['status'];
+            header('Location: /cab/main_cab');
+            exit();
+
+        } else {
             $_SESSION['info'] = 'Загрузите ваш аватар';
         }
-
     }
-
 }
-
-
-
 
 $users = q("
     SELECT *
@@ -106,7 +101,6 @@ $users = q("
     WHERE `id` = " . (int)$_GET['id'] ."
     LIMIT 1
 ");
-
 
 if (!mysqli_num_rows($users)) {
     $_SESSION['info'] = 'Пользователь отсутствует';

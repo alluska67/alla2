@@ -55,43 +55,43 @@ if (isset($_POST['category'], $_POST['name'], $_POST['vendor_code'], $_POST['ava
         $_POST = trimAll($_POST);
 
         q("
-        UPDATE `goods` SET
-        `category`    = '" . es($_POST['category']) . "',                         
-        `name`        = '" . es($_POST['name']) . "',
-        `vendor_code` = '" . es($_POST['vendor_code']) . "',
-        `availability`= '" . es($_POST['availability']) . "',
-        `description` = '" . es($_POST['description']) . "',
-        `price`       =  " . (float)$_POST['price'] . ",
-        `delivery`    = '" . es($_POST['delivery']) . "',
-        `date_changed`=  NOW()
-        WHERE `id` = ".(int)$_GET['id']."
+            UPDATE `goods` SET
+            `category`    = '" . es($_POST['category']) . "',                         
+            `name`        = '" . es($_POST['name']) . "',
+            `vendor_code` = '" . es($_POST['vendor_code']) . "',
+            `availability`= '" . es($_POST['availability']) . "',
+            `description` = '" . es($_POST['description']) . "',
+            `price`       =  " . (float)$_POST['price'] . ",
+            `delivery`    = '" . es($_POST['delivery']) . "',
+            `date_changed`=  NOW()
+            WHERE `id` = ".(int)$_GET['id']."
         ");
 
+        if (isset($_FILES['file']) && $_FILES['file']['error'] != 4) {
 
-        if(isset($_FILES['file']) && $_FILES['file']['error'] != 4 ) {
-
-            $image_info =  resizeImage ($_FILES['file'],'/uploaded/goods/');
-
-            if(isset($image_info['ok'])) {
-                $res = q("
-                    UPDATE `goods` SET
-                    `img` = '".es($image_info['resized_name'])."'
-                    WHERE `id` = ".(int)$_GET['id']."
-                    ");
-
-                $_SESSION['info'] = 'Товар был изменён';
-                header('Location: /admin/goods');
-                exit();
-
-
-            } else {
-
-                $_SESSION['info'] = $image_info['error'] ;
+            if (!Upload::uploadImage($_FILES['file'], '/uploaded/goods/')) {
+                $_SESSION['info'] = Upload::$info['error'] ;
                 header('Location: /admin/goods/edit?id='.(int)$_GET['id']);
-                exit();
+                exit($_SESSION['info']);
             }
-        } else{
-            $_SESSION['info'] = 'Загрузите картинку товара';
+
+            if (!Upload::resize(Upload::$path_origin,Upload::$path,Upload::$temp, 200, 150)) {
+                $_SESSION['info'] = Upload::$info['error'];
+                header('Location: /admin/goods/edit?id=' . (int)$_GET['id']);
+                exit($_SESSION['info']);
+            }
+
+            $res = q("
+                UPDATE `goods` SET
+                `img` = '".es(Upload::$name_resized)."'
+                WHERE `id` = ".(int)$_GET['id']."
+                ");
+            $_SESSION['info'] = Upload::$info['status'];
+            header('Location: /admin/goods');
+            exit();
+
+        } else {
+            $_SESSION['info'] = 'Загрузите фото товара';
         }
     }
 }
