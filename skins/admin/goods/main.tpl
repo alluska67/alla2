@@ -1,3 +1,4 @@
+<script type="text/javascript" src="/skins/default/js/scripts_v1.js"></script>
 <div class="goods">
   <div class="goods_incide" style="padding-top: 20px; padding-bottom: 20px">
   <?php if(isset($info)) { ?>
@@ -10,8 +11,11 @@
         <div class="preview">
           <div>
             <input type="checkbox" name="ids[]" value="<?=(int)($row['id']); ?>">
-            <a href="/admin/goods/main?action=delete&id=<?=(int)($row['id']); ?>">Удалить</a>
-            <a href="/admin/goods/edit?id=<?=(int)($row['id']); ?>">Редактировать</a>
+            <a href="/admin/goods/main?action=delete&id=<?=(int)($row['id']); ?>" id="delete_goods" onclick="areYouSure();">Удалить</a>
+
+            <a href="/admin/goods/edit?id=<?=(int)($row['id']); ?>" onclick="areYouSure('delete_goods')">Редактировать</a>
+
+
             <span class="main_name"><strong><?=htmlspecialchars($row['category']); ?></strong></span>
             <span class="main_name"><strong><?=htmlspecialchars($row['name']); ?></strong></span>
             <span><?=(float)($row['price']); ?> грн</span>
@@ -19,7 +23,7 @@
               <span><img src="/uploaded/no_image.png" alt="" class="no_image"></span>
             <?php } else { ?>
               <span><img src="<?='/uploaded/goods/'.htmlspecialchars($row['img']); ?>" alt=""></span>
-              <span><a href="/admin/goods?action=delete_img&id=<?=(int)($row['id']); ?>"><img src="/skins/admin/img/delete.png" alt="delete photo" class="delete_icon"> </a></span>
+              <span><a href="/admin/goods?action=delete_img&id=<?=(int)($row['id']); ?>"><img src="/skins/admin/img/delete.png" alt="delete photo" class="delete_icon"></a></span>
             <?php } ?>
 
           </div>

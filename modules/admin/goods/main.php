@@ -19,7 +19,7 @@ if(isset($_POST['ids'])) {
     }
 }
 
-if(isset($_GET['action'],$_GET['id']) && $_GET['action'] === 'delete') {
+if(isset($_GET['action'],$_GET['id']) && $_GET['action'] === 'delete' ) {
     q("
         DELETE FROM `goods`
         WHERE `id` = " . (int)$_GET['id'] . "

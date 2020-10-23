@@ -36,36 +36,63 @@ if (isset($_GET['route'])) {
 
 
 //Переключение страниц html
+//
+//$allowed = ['static','game','errors','files','cab','comments','news','goods'];
+//
+//
+//if(isset($_GET['module'])){
+//
+//    if(!in_array($_GET['module'],$allowed) && Core::$SKIN != 'admin'){
+//        header("Location: /errors/404");
+//        exit();
+//    }
+//
+//}else{
+//    $_GET['module'] = 'static';
+//}
 
-$allowed = ['static','game','errors','files','cab','comments','news','goods'];
-if(isset($_GET['module'])){
-
-    if(!in_array($_GET['module'],$allowed) && Core::$SKIN != 'admin'){
-        header("Location: /errors/404");
-        exit();
-    }
-
-}else{
+if (!isset($_GET['module'])) {
     $_GET['module'] = 'static';
+} else {
+    $res = q("
+        SELECT *
+        FROM `pages`
+        WHERE `module` = '".es($_GET['module'])."'
+        LIMIT 1
+    ");
+    if (!mysqli_num_rows($res)) {
+        header("Location: /404");
+        exit();
+    } else {
+        $static_page = mysqli_fetch_assoc($res);
+        if ($static_page['static'] == 1) {
+            $_GET['module'] = 'static_page';
+            $_GET['page'] = 'main';
+
+        }
+    }
 }
 
-if(isset($_GET['module']))
 
 
 
 
-if(!isset($_GET['page'])){
+if (!isset($_GET['page'])){
     $_GET['page'] = 'main';
 }
+if (!preg_match('#^[a-z-_]*$#iu', $_GET['page'])) {
+    header("Location: /404");
+    exit();
+}
 
-if(isset($_POST)) {
+if (isset($_POST)) {
     $_POST = trimAll($_POST);
 }
 
 //отображение обрезанной шапки
-if($_GET['page'] == 'main' && $_GET['module'] == 'static'){
+if ($_GET['page'] == 'main' && $_GET['module'] == 'static'){
     $not_main_page = '';
-}else{
+} else{
     $not_main_page = "not_main_page";
 }
 

@@ -12,6 +12,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php if(count(Core::$CSS)) { echo implode("\n",Core::$CSS); } ?>
     <?php if(count(Core::$JS)) { echo implode("\n",Core::$JS); } ?>
+
 </head>
 <body>
 <header>
@@ -88,10 +89,10 @@
           <nav class="main_nav">
             <ul class="incide_nav">
               <li class="line_li">
-                <a href="/static/about">about</a>
+                <a href="/about">about</a>
               </li>
               <li class="line_li_services">
-                <a href="/static/services">services<i class="sprite sprite-check_mark"></i></a>
+                <a href="/services">services<i class="sprite sprite-check_mark"></i></a>
                 <ul class="drop_menu_services">
                   <li class="drop_li">
                     <i class="arrow"></i>
@@ -120,7 +121,7 @@
                 </ul>
               </li>
               <li class="line_li">
-                <a href="/static/projects">projects</a>
+                <a href="/projects">projects</a>
               </li>
               <!--                <li class="line_li_blog">-->
               <!--                  <a href="/static/blog">blog<i class="sprite sprite-check_mark"></i></a>-->

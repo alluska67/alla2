@@ -164,17 +164,73 @@ if(trim($text) != $text) {
 }
 
 */
-function wtf($array, $stop = false) {
-    echo '<pre>'.print_r($array,1).'</pre>';
-    if(!$stop) {
-        exit();
-    }
-}
+//function wtf($array, $stop = false) {
+//    echo '<pre>'.print_r($array,1).'</pre>';
+//    if(!$stop) {
+//        exit();
+//    }
+//}
 
 ?>
+<head>
+    <script type="text/javascript" src="/skins/default/js/scripts_v1.js"></script>
 
-<form action="" method="post" enctype="multipart/form-data" style="background-color: #603A4E">
+</head>
+<body onunload="alert('Уже уходишь?')">
+caas
+<form action="" method="post" enctype="multipart/form-data" style="background-color: #603a4e">
     <input type="file" name="file" value="выберите файл" accept="image/jpeg,image/jpg,image/png,image/gif,image/bmp">
     <input type="submit" name="submit" value="загрузить файл">
-</form>
+    <input type="checkbox" id = "aaa" style=" " onclick="hide('111')">Удалить
+    </form>
+
+    <div id = "111"  style="display:none;width: 150px;background-color: brown;height: 30px;position: fixed;margin-left: 370px;padding-bottom: 23px;float: left;">
+        <p>Do you want to delete?</p>
+    </div>
+
+    <div id="click" style="font-size: 16px;" onclick = "hide('xxx')">Нажми!</div>
+    <div id = "xxx" style="display: block" >text</div>
+
+
+
+
+<!--    <script>-->
+<!--        x = document.getElementById('xxx').innerHTML;-->
+<!--        document.getElementById('xxx').innerHTML = 'Что хотим, то и пишем';-->
+<!--        document.getElementById('xxx').style.backgroundColor = 'blue';-->
+<!--        alert(document.getElementById('xxx').innerHTML)-->
+<!---->
+<!--        function calc (num1,num2,action) {-->
+<!--            var res = 0;-->
+<!--            if(action == undefined) {-->
+<!--                action = 'plus';-->
+<!--            }-->
+<!---->
+<!--            if(action == 'plus') {-->
+<!--                res = num1 + num2;-->
+<!--            }else if(action == 'minus') {-->
+<!--                res = num1 - num2;-->
+<!--            }-->
+<!--            return res;-->
+<!--        }-->
+<!--        x = calc(1,2);-->
+<!--        alert(x);-->
+<!--        y = calc(2,3,'minus')-->
+<!--        alert(y);-->
+<!--     </script>-->
+
+
+<!--<a href="http://www.google.com" onclick="alert(1); return true;">Google</a>-->
+<!---->
+<!--<a href="http://www.google.com" onclick="return areYouSure()">Google</a>-->
+<!---->
+<!--<form action="http://www.google.com" method="get" onsubmit="return areYouSure();">-->
+<!--    <input type="text" id="key" value="">-->
+<!--    <input type="submit" value="Delete">-->
+
+
+
+</body>
+
+
 

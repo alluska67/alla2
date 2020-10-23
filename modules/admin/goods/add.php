@@ -62,7 +62,6 @@ if (isset($_POST['category'], $_POST['name'], $_POST['vendor_code'], $_POST['ava
         );
   //id только что добавленный
         $insert_id = mysqli_insert_id($mysqli);
-        wtf($mysqli);
 
         if(isset($_FILES['file']) && $_FILES['file']['error'] != 4) {
 
