@@ -53,22 +53,22 @@ if (isset($_GET['route'])) {
 
 if (!isset($_GET['module'])) {
     $_GET['module'] = 'static';
+
 } else {
     $res = q("
         SELECT *
         FROM `pages`
-        WHERE `module` = '".es($_GET['module'])."'
-        LIMIT 1
+        WHERE module = '".es($_GET['module'])."'
     ");
-    if (!mysqli_num_rows($res)) {
+
+    if (!$row = $res->num_rows) {
         header("Location: /404");
         exit();
     } else {
-        $static_page = mysqli_fetch_assoc($res);
+        $static_page = $res->fetch_assoc();
         if ($static_page['static'] == 1) {
             $_GET['module'] = 'static_page';
             $_GET['page'] = 'main';
-
         }
     }
 }

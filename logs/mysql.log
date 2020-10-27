@@ -391,3 +391,21 @@ Date: 2020-09-28 15:50:51 File: W:\domains\alla2\modules\admin\goods\edit.php on
     Unknown column '142824mini96472.jpg' in 'where clause'
 
 
+Query: 
+        SELECT *
+        FROM `pages`
+        WHERE `module` == ''
+        LIMIT 1
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '== ''
+        LIMIT 1' at line 3
+File: D:\OSPanel\domains\alla2\variables.phpLine:61Date: 2020-10-27 17:16:25============================================
+
+Query: 
+        SELECT *
+        FROM `pages`
+        WHERE `module` == ''
+        LIMIT 1
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '== ''
+        LIMIT 1' at line 3
+File: D:\OSPanel\domains\alla2\variables.phpLine:61Date: 2020-10-27 17:16:25============================================
+

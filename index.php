@@ -11,8 +11,17 @@ include_once './config.php';
 include_once './libs/default.php';
 
 // Подключение к Базе Данных
-$mysqli = mysqli_connect(Core::$DB_LOCAL,Core::$DB_LOGIN,Core::$DB_PASS,Core::$DB_NAME);//Соединение
-mysqli_set_charset($mysqli,'utf8');
+//$mysqli = mysqli_connect(Core::$DB_LOCAL,Core::$DB_LOGIN,Core::$DB_PASS,Core::$DB_NAME);//Соединение
+//mysqli_set_charset($mysqli,'utf8');
+//
+//$res = q("SELECT NOW()");
+//while ($row = $res -> fetch_assoc()) {
+//    wtf($row,1);
+//}
+//$res->close();
+//DB::close();
+//echo 'Ok';
+//exit();
 
 // Работа с переменными
 include_once './variables.php';

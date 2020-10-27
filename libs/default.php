@@ -20,17 +20,20 @@ function printR($var) {
 }
 
 //mysqli_query
-function q($query){
+function q($query, $key = 0){
     global $mysqli;
-    $res = mysqli_query($mysqli,$query);
+    $res = DB::_($key)->query($query);
     if($res === false) {
         $info = debug_backtrace();
-        $error = "\r\nDate: " . date("Y-m-d H:i:s") . " File: ".$info[0]['file']." on line:".$info[0]['line'] . " Query: " . $query . '<br>' . mysqli_error($mysqli)."\r\n";
+        $error = "Query: " . $query . '<br>' . DB::_($key)->error."\r\n".
+                 "File: ".$info[0]['file'].
+                 "Line:".$info[0]['line'] .
+                 "Date: " . date("Y-m-d H:i:s").
+        "============================================";
         //Отправка уведомлений на почту
         //  Логирование ошибки
         file_put_contents('./logs/mysql.log', strip_tags($error)."\n\n", FILE_APPEND);
         echo $error;
-
         exit();
 
     }else{
@@ -56,15 +59,11 @@ function ht($el) {
     return $el;
 }
 
-function es($el) {
-    global $mysqli;
-    if(!is_array($el)){
-        $el = mysqli_real_escape_string($mysqli,$el);
-    }else{
-        $el = array_map("es",$el);
-    }
-    return $el;
+function es($el, $key = 0) {
+    return DB::_($key) ->real_escape_string($el);
 }
+
+
 
 function int($el) {
     if(!is_array($el)){
