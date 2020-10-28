@@ -7,18 +7,18 @@
         <table class="comments_table">
           <tr>
             <td>Имя *</td>
-            <td><input class="add_comment" type="text" name="name" value="<?=htmlspecialchars($_POST['name'] ?? " "); ?>"></td>
-            <td class="error"><?=($errors['name'] ?? " "); ?></td>
+            <td><input class="add_comment" type="text" name="name" value="<?=htmlspecialchars($_POST['name'] ?? ' '); ?>"></td>
+            <td class="error"><?=($errors['name'] ?? ' '); ?></td>
           </tr>
           <tr>
             <td>Email *</td>
             <td><input class="add_comment" type="email" name="email" value="<?=htmlspecialchars($_POST['email'] ?? " "); ?>"></td>
-            <td class="error"><?=($errors['email'] ?? " "); ?></td>
+            <td class="error"><?=($errors['email'] ?? ' '); ?></td>
           </tr>
           <tr>
             <td>Ваш комментарий *</td>
-            <td><textarea class="add_comment" name="comment"><?=htmlspecialchars($_POST['comment'] ?? " "); ?></textarea></td>
-            <td class="error"><?=($errors['comment'] ?? " "); ?></td>
+            <td><textarea class="add_comment" name="comment"><?=htmlspecialchars($_POST['comment'] ?? ' '); ?></textarea></td>
+            <td class="error"><?=($errors['comment'] ?? ' '); ?></td>
           </tr>
         </table>
         <input class="add_comment" type="submit" name="send" value="Добавить комментарий">
@@ -33,9 +33,9 @@
   </div>
 <?php  } ?>
   <div class="comments_top">
-     <h2 class="total">Total comments : <?=mysqli_num_rows($result); ?></h2>
-       <?php if(mysqli_num_rows($result)) { ?>
-         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+     <h2 class="total">Total comments : <?=$result->num_rows; ?></h2>
+       <?php if($result->num_rows) { ?>
+         <?php while ($row = $result->fetch_assoc()) { ?>
           <div class="comments_top_incide">
             <div class="top_name_date">
               <div class="id"><?=(int)$row['id'] .'. ' ; ?></div>

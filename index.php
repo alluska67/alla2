@@ -36,6 +36,7 @@ ob_start();
     include './'. Core::$CONTROLLER .'/'. $_GET['module'] .'/'. $_GET['page'] .'.php';
     include './skins/'.Core::$SKIN.'/'.$_GET['module'] .'/'. $_GET['page'] .'.tpl';
     $content = ob_get_contents();
+
 ob_end_clean();
 
 

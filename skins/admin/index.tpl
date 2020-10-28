@@ -29,7 +29,6 @@
               <?php } else { ?>
               <img src="<?='/uploaded/avatar/'.htmlspecialchars($_SESSION['user']['avatar']); ?>" class="avatar_main"alt="">
               <?php } ?>
-
               <p class="near_avatar"><?=$_SESSION['user']['login']?></p>
               <a href="/cab/main_cab" style="font-size: 13px;">Личный кабинет</a>
             <?php } else { ?>
@@ -37,8 +36,6 @@
               <a href="/cab/authorization">Авторизация</a>
               <a href="/cab/registration">Регистрация</a>
             <?php }?>
-
-<!--          --><?php //if(isset($_SESSION['user']) && $_SESSION['user']['access'] == 7 ) { echo 'Ваш логин : <br>' .$_SESSION['user']['login']; }?>
         </div>
       </div>
     </div>
@@ -50,7 +47,7 @@
             <nav class="main_nav">
               <ul class="incide_nav">
                 <li class="line_li">
-                  <a href="/admin/goods/main">GOODS<i class="sprite sprite-check_mark"></i></a>
+                  <a href="/admin/goods">GOODS<i class="sprite sprite-check_mark"></i></a>
                   <ul class="drop_menu_services">
                     <li class="drop_li">
                       <i class="arrow"></i>
@@ -59,7 +56,7 @@
                   </ul>
                  </li>
                 <li class="line_li">
-                  <a href="/admin/news/main">NEWS<i class="sprite sprite-check_mark"></i></a>
+                  <a href="/admin/news">NEWS<i class="sprite sprite-check_mark"></i></a>
                   <ul class="drop_menu_services">
                     <li class="drop_li">
                       <i class="arrow"></i>

@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title><?php echo ht(Core::$META['title']); ?></title>
-  <meta name="description" content="<?php echo ht(Core::$META['description']); ?>">
-  <meta name="keywords" content="<?php echo ht(Core::$META['keywords']); ?>">
-  <link href="/skins/<?php echo Core::$SKIN;?>/css/normalize.css" rel="stylesheet">
-  <link href="/skins/<?php echo Core::$SKIN;?>/css/landing.css" rel="stylesheet">
+  <title><?=ht(Core::$META['title']); ?></title>
+  <meta name="description" content="<?=ht(Core::$META['description']); ?>">
+  <meta name="keywords" content="<?=ht(Core::$META['keywords']); ?>">
+  <link href="/skins/<?=Core::$SKIN;?>/css/normalize.css" rel="stylesheet">
+  <link href="/skins/<?=Core::$SKIN;?>/css/landing.css" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php if(count(Core::$CSS)) { echo implode("\n",Core::$CSS); } ?>
     <?php if(count(Core::$JS)) { echo implode("\n",Core::$JS); } ?>
@@ -83,7 +83,7 @@
     <div class="header_container_bottom">
       <div class="header_container_bottom_inside">
         <div class="logo">
-          <a href="/"><img src="/skins/<?php echo Core::$SKIN; ?>/img/logo.png" alt="logo"></a>
+          <a href="/"><img src="/skins/<?=Core::$SKIN; ?>/img/logo.png" alt="logo"></a>
         </div>
         <div class="header_nav clearfix">
           <nav class="main_nav">
@@ -413,21 +413,21 @@
               <!--                </li>-->
               <!--                --><?php //} ?>
               <li class="game">
-                <a href="/game/main">Game</a>
+                <a href="/game">Game</a>
               </li>
               <li class="files">
-                <a href="/files/main">Files</a>
+                <a href="/files">Files</a>
               </li>
               <li class="comments">
-                <a href="/comments/main">Comments</a>
+                <a href="/comments">Comments</a>
               </li>
                 <?php if(isset($_SESSION['user']) && $_SESSION['user']['access'] != 5) { ?>
                   <li class="news">
-                    <a href="/news/main">News</a>
+                    <a href="/news">News</a>
                   </li>
                 <?php } ?>
               <li class="news">
-                <a href="/goods/main">Goods</a>
+                <a href="/goods">Goods</a>
               </li>
               <li class="news">
                 <a href="/cab/registration">Reg</a>
@@ -457,7 +457,7 @@
   <div class="<?=$not_main_page;?>">
     <div class="site_content"></div>
   </div>
-    <?php echo $content ; ?>
+    <?=$content ; ?>
 </main>
 <footer class="container">
   <div class="footer_top">

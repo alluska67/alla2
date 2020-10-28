@@ -16,8 +16,7 @@ if(isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete') {
 $users = q( "
     SELECT   *
     FROM     `users`
-    WHERE `id` = ".(int)$_SESSION['user']['id']."
-     
+    WHERE `id` = ".(int)$_SESSION['user']['id']."  
 ");
 
 

@@ -6,22 +6,22 @@
       <table>
         <tr>
           <td>Login *</td>
-          <td><input class="cab_table" type="text" name="login" value="<?php echo @ht($_POST['login']); ?>"></td>
-          <td><?php echo @$errors['login']; ?></td>
+          <td><input class="cab_table" type="text" name="login" value="<?=htmlspecialchars($_POST['login'] ?? ''); ?>"></td>
+          <td><?=$errors['login'] ?? ''; ?></td>
         </tr>
         <tr>
           <td>Password *</td>
-          <td><input class="cab_table" type="password" name="password" value="<?php echo @ht($_POST['password']); ?>"></td>
-          <td><?php echo @$errors['password']; ?></td>
+          <td><input class="cab_table" type="password" name="password" value="<?=htmlspecialchars($_POST['password'] ?? ''); ?>"></td>
+          <td><?=$errors['password'] ?? ''; ?></td>
         </tr>
         <tr>
           <td>Email *</td>
-          <td><input class="cab_table" type="email" name="email" value="<?php echo @ht($_POST['email']); ?>"></td>
-          <td><?php echo @$errors['email']; ?></td>
+          <td><input class="cab_table" type="email" name="email" value="<?=htmlspecialchars($_POST['email'] ?? ''); ?>"></td>
+          <td><?=$errors['email'] ?? ''; ?></td>
         </tr>
         <tr>
           <td>Age</td>
-          <td><input class="cab_table" type="text" name="age" value="<?php echo @ht($_POST['age']); ?>"></td>
+          <td><input class="cab_table" type="text" name="age" value="<?=htmlspecialchars($_POST['age']  ?? ''); ?>"></td>
           <td></td>
         </tr>
       </table>

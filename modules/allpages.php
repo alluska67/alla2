@@ -1,6 +1,5 @@
 <?php
 
-
 if (isset($_SESSION['user'])) {
     $res = q("
         SELECT *
@@ -8,7 +7,7 @@ if (isset($_SESSION['user'])) {
         WHERE `id` = " . (int)$_SESSION['user']['id'] . "
         LIMIT 1
     ");
-    $_SESSION['user'] = mysqli_fetch_assoc($res);
+    $_SESSION['user'] = $res->fetch_assoc();
 
     if ($_SESSION['user']['active'] != 1) {
         if(isset ($_GET['page']) && $_GET['page'] != 'exit') {
@@ -24,9 +23,9 @@ if (isset($_SESSION['user'])) {
               AND `hash` = '".es($_COOKIE['autoauthhash'])."'
             LIMIT 1
         ");
-        $row = mysqli_fetch_assoc($res);
+        $row = $res->fetch_assoc();
 
-        if (mysqli_num_rows($res)) {
+        if ($res->num_rows) {
             $_SESSION['user'] = $row;
 
         } else {

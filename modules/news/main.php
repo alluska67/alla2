@@ -1,7 +1,5 @@
 <?php
 
-
-
 //Core::$META['title'] = 'Новый параметр ';
 
 if (isset($_POST['delete'], $_POST['ids'])) {
@@ -24,7 +22,6 @@ if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete') {
     q("
         DELETE FROM `news`
         WHERE `id` = " . int($_GET['id']) . "
-    
     ");
     $_SESSION['info'] = 'Новость была удалена';
     header('Location: /news');

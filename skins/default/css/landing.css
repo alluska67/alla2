@@ -235,7 +235,7 @@ a.sprite-loupe2:hover {
   display: none;
   width: 245px;
   list-style: none;
-  top: 183px;
+  top: 200px;
   line-height: 1.5;
   padding: 7px 0 7px 0;
 }
@@ -243,7 +243,7 @@ a.sprite-loupe2:hover {
 .drop_menu_blog ,.drop_menu_features ,.drop_menu_pages {
   display: none;
   list-style: none;
-  top: 183px;
+  top: 200px;
   left: 372px;
   line-height: 1.5;
   padding: 35px 4px 15px 4px;
@@ -357,7 +357,7 @@ nav .drop_menu_blog:hover , nav .drop_menu_features:hover ,nav .drop_menu_pages:
 }
 
 .logo {
-  margin-top: 20px;
+  margin-top: 10px;
   float: left;
 }
 
@@ -1280,8 +1280,19 @@ game
 .game_left ,.game_middle ,.game_right {
   display: block;
   float: left;
-  padding-top: 71px;
+  /*padding-top: 71px;*/
   width: 33.3%;
+}
+
+.game_left{
+  padding-top: 0px;
+  width: 33.3%;
+}
+.game_right_text{
+  padding-bottom: 71px;
+}
+.game_right_image img {
+  padding-top: 4px;
 }
 
 .game_right_image {
@@ -1293,12 +1304,12 @@ game
   font-size: 40px;
   margin: auto;
   text-align: center;
+  line-height: 1.9;
 }
 
 .game_middle_incide {
   color: black;
   float: left;
-  width: 760px;
 }
 
 .game_text2 {

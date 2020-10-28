@@ -2,8 +2,10 @@
   <div class="goods_incide" style="padding-top: 20px; padding-bottom: 20px">
     <h3 class="total"><?=($info ?? ''); ?></h3>
     <h2 class="total">Информация о Вас:</h2>
-      <?php if (isset($_SESSION['user'])) {
-        $row = mysqli_fetch_assoc($users); ?>
+      <?php if ($_SESSION['user']) {
+        $row = $users->fetch_assoc();
+        $users->close();
+      ?>
         <div class="preview_user">
           <div class="users_inside">
             <span class="main_name"><strong><?=htmlspecialchars($row['login']); ?></strong></span><br>

@@ -9,10 +9,11 @@ if (isset($_POST['login'], $_POST['password'])) {
           AND `active` = 1
         LIMIT            1
      ");
-    $row = mysqli_fetch_assoc($res);
+    $row = $res->fetch_assoc();
 
     if (password_verify($_POST['password'], $row['password'])) {
-        if (mysqli_num_rows($res)) {
+        if ($res->num_rows) {
+            $res->close();
             $_SESSION['user'] = $row;
             $status = 'Ok';
             if (isset($_POST['autoauth'])) {
@@ -26,6 +27,7 @@ if (isset($_POST['login'], $_POST['password'])) {
                     WHERE `id` = " . (int)$row['id'] . "
             "
                 );
+                $res->close();
                 //Для вывода имени пользователя
                 $res = q(
                     "
@@ -35,7 +37,8 @@ if (isset($_POST['login'], $_POST['password'])) {
                     LIMIT 1
                 "
                 );
-                $row = mysqli_fetch_assoc($res);
+                $row = $res->fetch_assoc();
+                $res->close();
                 setcookie('autoauthhash', $row['hash'], time() + 36000, '/');
                 setcookie('autoauthid', $row['id'], time() + 36000, '/');
                 $_SESSION['user'] = $row;

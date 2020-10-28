@@ -37,7 +37,8 @@ if (isset($_POST['login'],$_POST['password'],$_POST['active'],$_POST['email'],$_
               AND `id` <> " . int($_GET['id']) ." 
             LIMIT 1
         ");
-        if (mysqli_num_rows($res)) {
+        if ($res->num_rows) {
+            $res->close();
             $errors ['login'] = 'Такой логин уже занят';
         }
 
@@ -48,7 +49,8 @@ if (isset($_POST['login'],$_POST['password'],$_POST['active'],$_POST['email'],$_
               AND `id` <> " . int($_GET['id']) ." 
             LIMIT 1
         ");
-        if (mysqli_num_rows($res)) {
+        if ($res->num_rows) {
+            $res->close();
             $errors ['email'] = 'Такой email уже занят';
         }
     }
@@ -85,14 +87,15 @@ $users = q("
 ");
 
 
-if (!mysqli_num_rows($users)) {
+if (!$users->num_rows) {
     $_SESSION['info'] = 'Пользователь отсутствует';
     header('Location: /admin/users');
     exit();
 }
 
 
-$row = mysqli_fetch_assoc($users);
+$row = $users->fetch_assoc();
+$users->close();
 
 
 if (isset($_POST['login'])) {

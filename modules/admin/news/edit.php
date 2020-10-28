@@ -44,13 +44,14 @@ $news = q( "
     LIMIT 1
 ");
 
-if (!mysqli_num_rows($news)) {
+if (!$news->num_rows) {
     $_SESSION['info'] = 'Запись отсутствует';
     header('Location: /admin/news');
     exit();
 }
 
-$row = mysqli_fetch_assoc($news);
+$row = $news->fetch_assoc();
+$news->close();
 
 if (isset($_POST['title'])) {
     $row['title'] = $_POST['title'];

@@ -24,7 +24,8 @@ if (isset($_POST['login'], $_POST['password'], $_POST['email'], $_POST['age'])) 
             WHERE `login` = '".es($_POST['login'])."'
             LIMIT 1
         ");
-        if (mysqli_num_rows($res)) {
+        if ($res->num_rows) {
+            $res->close();
             $errors ['login'] = 'Такой логин уже занят';
         }
         $res = q("
@@ -33,7 +34,8 @@ if (isset($_POST['login'], $_POST['password'], $_POST['email'], $_POST['age'])) 
             WHERE `email` = '".es($_POST['email'])."'
             LIMIT 1
         ");
-        if (mysqli_num_rows($res)) {
+        if ($res->num_rows) {
+            $res->close();
             $errors ['email'] = 'Такой email уже занят';
         }
     }
@@ -52,7 +54,7 @@ if (isset($_POST['login'], $_POST['password'], $_POST['email'], $_POST['age'])) 
             `hash`    = '".es($hash)."'
             ");
 
-        $id = mysqli_insert_id($mysqli);
+        $id = DB::_()->insert_id;
 
         $_SESSION['regok'] = 'OK';
 

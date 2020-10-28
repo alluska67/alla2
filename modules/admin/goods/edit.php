@@ -91,7 +91,25 @@ if (isset($_POST['category'], $_POST['name'], $_POST['vendor_code'], $_POST['ava
             exit();
 
         } else {
-            $_SESSION['info'] = 'Загрузите фото товара';
+            $res = q("
+                SELECT `img`
+                FROM `goods`
+                WHERE `id` = ".(int)$_GET['id']."
+            ");
+            $row = $res->fetch_assoc();
+            if(!$res->num_rows) {
+                $res->close();
+                $_SESSION['info'] = 'Загрузите фото товара';
+            } else {
+                $res = q("
+                UPDATE `goods` SET
+                `img` = '" . es($row['img']) . "'
+                WHERE `id` = " . (int)$_GET['id'] . "
+                ");
+                $_SESSION['info'] = Upload::$info['status'];
+                header('Location: /admin/goods');
+                exit();
+            }
         }
     }
 }
@@ -104,14 +122,14 @@ $goods = q("
     LIMIT 1
 ");
 
-if (!mysqli_num_rows($goods)) {
+if (!$goods->num_rows) {
     $_SESSION['info'] = 'Запись отсутствует';
     header('Location: /admin/goods');
     exit();
 }
 
-$row = mysqli_fetch_assoc($goods);
-
+$row = $goods->fetch_assoc();
+$goods->close();
 // проверка ключей в массиве
 if (isset($_POST['category'])) {
     if (array_key_exists($_POST['category'], $goods_category)) {

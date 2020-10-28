@@ -43,7 +43,7 @@ function read($link){
     return $result;
 }
 
-$link = (isset($_GET['link']) ? $_GET['link']  : '');
+$link = $_GET['link'] ?? '';
 
 
 

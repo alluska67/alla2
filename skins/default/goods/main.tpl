@@ -5,7 +5,7 @@
   <?php } ?>
     <h2 class="total">Существующие товары:</h2>
     <form action="" method="post">
-      <?php while ($row = mysqli_fetch_assoc($goods)) { ?>
+      <?php while ($row = $goods->fetch_assoc()) { ?>
         <div class="preview">
           <div>
             <span class="main_name"><strong><?=htmlspecialchars($row['name']); ?></strong></span>

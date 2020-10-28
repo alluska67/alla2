@@ -1,7 +1,4 @@
 <?php
-
-
-
 //Core::$META['title'] = 'Новый параметр ';
 
 if (isset($_POST['delete'], $_POST['ids'])) {

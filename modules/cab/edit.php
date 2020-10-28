@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_GET['action'],$_GET['id']) && $_GET['action'] === 'delete_img') {
-    q("
+    $res = q("
         UPDATE `users` SET
           `avatar` = ''
         WHERE `id` = " . (int)$_GET['id'] . "
@@ -43,7 +43,8 @@ if (isset($_POST['name'], $_POST['last_name'],$_POST['age'],$_POST['country'],$_
               AND `id` <> " . (int)$_GET['id'] ." 
             LIMIT 1
         ");
-        if (mysqli_num_rows($res)) {
+        if ($res->num_rows) {
+            $res->close();
             $errors ['email'] = 'Такой email уже занят';
         }
     }
@@ -89,8 +90,26 @@ if (isset($_POST['name'], $_POST['last_name'],$_POST['age'],$_POST['country'],$_
             header('Location: /cab/main_cab');
             exit();
 
-        } else {
-            $_SESSION['info'] = 'Загрузите ваш аватар';
+        }else {
+            $res = q("
+                SELECT `avatar`
+                FROM `users`
+                WHERE `id` = ".(int)$_GET['id']."
+            ");
+            $row = $res->fetch_assoc();
+            if(!$res->num_rows) {
+                $res->close();
+                $_SESSION['info'] = 'Загрузите ваш аватар';
+            } else {
+                $res = q("
+                UPDATE `users` SET
+                `avatar` = '".es($row['avatar'])."'
+                WHERE `id` = ".(int)$_GET['id']."
+                ");
+                $_SESSION['info'] = Upload::$info['status'];
+                header('Location: /cab/main_cab');
+                exit();
+            }
         }
     }
 }
@@ -102,14 +121,15 @@ $users = q("
     LIMIT 1
 ");
 
-if (!mysqli_num_rows($users)) {
+if (!$users->num_rows) {
     $_SESSION['info'] = 'Пользователь отсутствует';
     header('Location: /');
     exit();
 }
 
 
-$row = mysqli_fetch_assoc($users);
+$row = $users->fetch_assoc();
+//$users->close();
 
 
 if (isset($_POST['name'])) {

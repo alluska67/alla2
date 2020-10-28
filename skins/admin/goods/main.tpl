@@ -7,15 +7,13 @@
     <a href="/admin/goods/add"><span class="add_bottom">Добавить товар</span></a>
     <h2 class="total">Существующие товары:</h2>
     <form action="" method="post">
-      <?php while ($row = mysqli_fetch_assoc($goods)) { ?>
+      <?php while ($row = $goods->fetch_assoc()) { ?>
         <div class="preview">
           <div>
             <input type="checkbox" name="ids[]" value="<?=(int)($row['id']); ?>">
-            <a href="/admin/goods/main?action=delete&id=<?=(int)($row['id']); ?>" id="delete_goods" onclick="areYouSure();">Удалить</a>
+            <a href="/admin/goods/main?action=delete&id=<?=(int)($row['id']); ?>">Удалить</a>
 
-            <a href="/admin/goods/edit?id=<?=(int)($row['id']); ?>" onclick="areYouSure('delete_goods')">Редактировать</a>
-
-
+            <a href="/admin/goods/edit?id=<?=(int)($row['id']); ?>" >Редактировать</a>
             <span class="main_name"><strong><?=htmlspecialchars($row['category']); ?></strong></span>
             <span class="main_name"><strong><?=htmlspecialchars($row['name']); ?></strong></span>
             <span><?=(float)($row['price']); ?> грн</span>

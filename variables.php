@@ -66,6 +66,7 @@ if (!isset($_GET['module'])) {
         exit();
     } else {
         $static_page = $res->fetch_assoc();
+        $res->close();
         if ($static_page['static'] == 1) {
             $_GET['module'] = 'static_page';
             $_GET['page'] = 'main';

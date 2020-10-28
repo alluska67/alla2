@@ -21,7 +21,6 @@ function printR($var) {
 
 //mysqli_query
 function q($query, $key = 0){
-    global $mysqli;
     $res = DB::_($key)->query($query);
     if($res === false) {
         $info = debug_backtrace();

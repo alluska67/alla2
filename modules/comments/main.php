@@ -24,8 +24,8 @@ if (isset($_POST['name'], $_POST['comment'], $_POST['email'])) {
         `email`= '".es($_POST['email'])."',
         `text` = '".es($_POST['comment'])."'
         ");
-        $_SESSION['commentok'] = 'OK';
 
+        $_SESSION['commentok'] = 'OK';
         header("Location: /comments/main");
         exit();
     }

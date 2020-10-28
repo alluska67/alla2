@@ -61,7 +61,7 @@ if (isset($_POST['category'], $_POST['name'], $_POST['vendor_code'], $_POST['ava
         "
         );
   //id только что добавленный
-        $insert_id = mysqli_insert_id($mysqli);
+        $insert_id = DB::_()->insert_id;
 
         if(isset($_FILES['file']) && $_FILES['file']['error'] != 4) {
 
