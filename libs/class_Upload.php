@@ -61,7 +61,7 @@ class Upload
         return true;
     }
 
-    static function resize ($path_origin, $path, $temp, $newWidth, $newHeight) {
+    static function resize ($path_origin, $path, $temp, $newWidth, $newHeight ) {
 
         $name_resized = date('Ymd-His') . 'mini' . rand(10000, 99999) .'.jpg';
         $path_resized = $path . $name_resized;

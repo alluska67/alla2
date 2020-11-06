@@ -36,9 +36,7 @@ if (isset($_POST['category'], $_POST['name'], $_POST['vendor_code'], $_POST['ava
     if (empty($_POST['delivery'])) {
         $errors ['delivery'] = 'Введите информацию о доставке товара';
     }
-    if (empty($_POST['delivery'])) {
-        $errors ['delivery'] = 'Введите информацию о доставке товара';
-    }
+
     if ($_FILES['file']['error'] == 4 ) {
         $errors ['files'] = 'Загрузите изображение';
     }

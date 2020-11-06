@@ -409,3 +409,571 @@ Query:
         LIMIT 1' at line 3
 File: D:\OSPanel\domains\alla2\variables.phpLine:61Date: 2020-10-27 17:16:25============================================
 
+Query: 
+    SELECT *
+    FROM `news_category`
+    ORDER BY `title` ASC 
+
+Unknown column 'title' in 'order clause'
+File: D:\OSPanel\domains\alla2\modules\admin\news\main.phpLine:38Date: 2020-10-30 15:38:01============================================
+
+Query: 
+    SELECT *
+    FROM `news_category`
+    ORDER BY `title` ASC
+
+Unknown column 'title' in 'order clause'
+File: D:\OSPanel\domains\alla2\modules\admin\news\add.phpLine:3Date: 2020-11-02 13:13:32============================================
+
+Query: 
+        INSERT INTO `all_news` SET
+        `title`        = 'rgtr',
+        
+        `text`         = 'rtgg',
+        `author`         = 'kjnkj'
+        
+        `date`         = NOW()
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`date`         = NOW()' at line 7
+File: D:\OSPanel\domains\alla2\modules\admin\news\add.phpLine:58Date: 2020-11-02 15:34:57============================================
+
+Query: 
+        INSERT INTO `all_news` SET
+        `title`        = 'rgtr',
+        `category_id`         = 3,
+        `text`         = 'rtgg',
+        `author`         = 'kjnkj' 
+        `date`         = NOW()
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`date`         = NOW()' at line 6
+File: D:\OSPanel\domains\alla2\modules\admin\news\add.phpLine:58Date: 2020-11-02 15:38:25============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news` 
+    JOIN news_category nc on nc.id = all_news.category_id
+    WHERE `id` = 13
+Column 'id' in where clause is ambiguous
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:6Date: 2020-11-03 13:46:46============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Не мода и стиль',
+        `category_id`  = 'Животный мир',
+        `author`       = 'fdgdgfgffg',
+        `text`         = 'dfgf',
+        `date_edited`         = NOW()
+        WHERE `id` = 11
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:43Date: 2020-11-03 14:09:49============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Не мода и стиль',
+        `category_id`  = '0',
+        `author`       = 'fdgdgfgffg',
+        `text`         = 'dfgf',
+        `date_edited`         = NOW()
+        WHERE `id` = 11
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:43Date: 2020-11-03 14:11:17============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Не мода и стиль',
+        `category_id`  = '0',
+        `author`       = 'fdgdgfgffg',
+        `text`         = 'dfgf',
+        `date_edited`         = NOW()
+        WHERE `id` = 11
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:44Date: 2020-11-03 14:11:57============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Не мода и стиль',
+        `category_id`  = '0',
+        `author`       = 'fdgdgfgffg',
+        `text`         = 'dfgf',
+        `date_edited`         = NOW()
+        WHERE `id` = 11
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:44Date: 2020-11-03 14:12:30============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Не мода и стиль',
+        `category_id`  = '0',
+        `author`       = 'fdgdgfgffg',
+        `text`         = 'dfgf',
+        `date_edited`         = NOW()
+        WHERE all_news.`id` = 11
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:44Date: 2020-11-03 14:14:47============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Horsessadad',
+        `category_id`  = '0',
+        `author`       = 'Hooo',
+        `text`         = 'kfjjdffj',
+        `date_edited`         = NOW()
+        WHERE all_news.`id` = 13
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:44Date: 2020-11-03 14:15:45============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'gsdgkk',
+        `category_id`  = '0',
+        `author`       = 'fdgdgfgffg',
+        `text`         = 'dfgf',
+        `date_edited`         = NOW()
+        WHERE all_news.`id` = 11
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:44Date: 2020-11-03 14:17:36============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'gsdg',
+        `category_id`  = '0',
+        `author`       = 'fdgdgfgffg',
+        `text`         = 'dfgffshhd',
+        `date_edited`         = NOW()
+        WHERE all_news.`id` = 11
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:44Date: 2020-11-03 14:19:19============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'gsdg',
+        `category_id`  = '0',
+        `author`       = 'fdgdgfgffg',
+        `text`         = 'dfgffshhd',
+        `date_edited`         = NOW()
+        WHERE `id` = 11
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:44Date: 2020-11-03 14:19:49============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'gsdg',
+        `category_id`  = '0',
+        `author`       = 'fdgdgfgffg',
+        `text`         = 'dfgffshhd',
+        `date_edited`         = NOW()
+        WHERE `id` = 11
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:39Date: 2020-11-03 14:20:55============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Horses',
+        `category_id`  = '0',
+        `author`       = 'Hooodd',
+        `text`         = 'kfjjdffj',
+        `date_edited`         = NOW()
+        WHERE `id` = 13
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:39Date: 2020-11-03 14:21:16============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Horses',
+        `category_id`  = '0',
+        `author`       = 'Hooodd',
+        `text`         = 'kfjjdffj',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 13
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:39Date: 2020-11-03 14:22:11============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Холодно в Сумах',
+        `category_id`  = '0',
+        `author`       = 'атлм',
+        `text`         = 'улыоалоук',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 10
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:39Date: 2020-11-03 14:22:41============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Холодно в Сумах',
+        `category_id`  = '0',
+        `author`       = 'атлм',
+        `text`         = 'улыоалоук',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 10
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:39Date: 2020-11-03 14:24:21============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Холодно в Сумах',
+        `category_id`  = '0',
+        `author`       = 'атлм',
+        `text`         = 'улыоалоук',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 10
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:39Date: 2020-11-03 14:24:25============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Холодно в Сумах',
+        `category_id`  = '0',
+        `author`       = 'атлм',
+        `text`         = 'улыоалоук',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 10
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:45Date: 2020-11-03 14:24:55============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Horses',
+        `category_id`  = '0',
+        `author`       = 'Hooo',
+        `text`         = 'kfjjdffj',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 13
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:45Date: 2020-11-03 14:25:46============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Horses',
+        `category_id`  = '0',
+        `author`       = 'Hooo',
+        `text`         = 'kfjjdffj',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 13
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:48Date: 2020-11-03 14:29:42============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Horsesff',
+        `category_id`  = '0',
+        `author`       = 'Hooo',
+        `text`         = 'kfjjdffj',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 13
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:48Date: 2020-11-03 14:30:16============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Horsesff',
+        `category_id`  = '0',
+        `author`       = 'Hooo',
+        `text`         = 'kfjjdffj',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 13
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:49Date: 2020-11-03 14:34:24============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носааит штанишки',
+        `category_id`  = '0',
+        `author`       = 'лываыв',
+        `text`         = 'выааа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:49Date: 2020-11-03 14:40:56============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит штанвсвишкивдвд',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:55Date: 2020-11-03 14:49:02============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит штанвсвишкивдвд',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:55Date: 2020-11-03 14:49:28============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит штанвсвишкивдвд',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:55Date: 2020-11-03 14:49:36============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит штанвсвишкивдвд',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:55Date: 2020-11-03 14:51:39============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит штанвсвишкивдвд',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:52Date: 2020-11-03 14:52:24============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит штанвсвишкивдвд',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:52Date: 2020-11-03 14:54:34============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууцddd',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:52Date: 2020-11-03 14:55:03============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:61Date: 2020-11-03 15:00:28============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:61Date: 2020-11-03 15:00:51============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:61Date: 2020-11-03 15:01:01============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:49Date: 2020-11-03 15:04:36============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:49Date: 2020-11-03 15:04:55============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууц',
+        `text`         = 'выаааууа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:49Date: 2020-11-03 15:10:06============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууцxdd',
+        `text`         = 'выаааууccа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:49Date: 2020-11-03 15:14:06============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууцxdd',
+        `text`         = 'выаааууccа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:49Date: 2020-11-03 15:14:15============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууцxdd',
+        `text`         = 'выаааууccа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:49Date: 2020-11-03 15:14:32============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууцxdd',
+        `text`         = 'выаааууccа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:49Date: 2020-11-03 15:17:38============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууцxdd',
+        `text`         = 'выаааууccа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:49Date: 2020-11-03 15:17:41============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууцxdd',
+        `text`         = 'выаааууccа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:57Date: 2020-11-03 15:30:05============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууцxdd',
+        `text`         = 'выаааууccа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:57Date: 2020-11-03 15:30:11============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууцxdd',
+        `text`         = 'выаааууccа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:57Date: 2020-11-03 15:30:37============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууцxdd',
+        `text`         = 'выаааууccа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:55Date: 2020-11-03 15:31:17============================================
+
+Query: 
+        UPDATE `all_news` SET
+        `title`        = 'Вася носит шт',
+        `category_id`  = '0',
+        `author`       = 'лываывуууууцxdd',
+        `text`         = 'выаааууccа',
+        `date_edited`         = NOW()
+        WHERE `all_news`.`id` = 14
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:55Date: 2020-11-03 15:31:37============================================
+
+Query: 
+    SELECT all_news.*, nc.*
+    FROM `all_news` 
+    JOIN news_category nc on nc.id = all_news.category_id
+    WHERE `all_news`.`id` = 14
+    LIMIT 1
+Unknown column 'nc.id' in 'on clause'
+File: D:\OSPanel\domains\alla2\modules\admin\news\edit.phpLine:68Date: 2020-11-03 15:41:00============================================
+
+Query: 
+        INSERT INTO `all_news` SET
+        `title`        = 'dksd',
+        `category_id`         = 0,
+        `text`         = 'dd',
+        `author`         = 'ffffff', 
+        `date`         = NOW()
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id_cat`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\add.phpLine:47Date: 2020-11-03 15:47:55============================================
+
+Query: 
+        INSERT INTO `all_news` SET
+        `title`        = 'dksd',
+        `category_id`         = 0,
+        `text`         = 'dd',
+        `author`         = 'ffffff', 
+        `date`         = NOW()
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`all_news`, CONSTRAINT `all_news_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `news_category` (`id_cat`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\news\add.phpLine:47Date: 2020-11-03 15:48:13============================================
+
+Query: 
+     SELECT all_news.*, nc.title_cat
+        FROM `all_news`
+        JOIN news_category nc on nc.id_cat = all_news.category_id
+        ORDER BY `date` DESC 
+        WHERE `id` = 34
+
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 34' at line 5
+File: D:\OSPanel\domains\alla2\modules\admin\news\main.phpLine:56Date: 2020-11-05 20:41:18============================================
+
