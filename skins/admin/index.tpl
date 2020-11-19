@@ -7,8 +7,8 @@
   <title><?php echo ht(Core::$META['title']); ?></title>
   <meta name="description" content="<?php echo ht(Core::$META['description']); ?>">
   <meta name="keywords" content="<?php echo ht(Core::$META['keywords']); ?>">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link href="/skins/<?php echo Core::$SKIN;?>/css/normalize.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link href="/skins/<?php echo Core::$SKIN;?>/css/landing.css" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <?php if(count(Core::$CSS)) { echo implode("\n",Core::$CSS); } ?>

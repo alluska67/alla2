@@ -1010,7 +1010,7 @@ input[type="text"]::-webkit-input-placeholder ,input[type="mail"]::-webkit-input
 
 /*footer*/
 
-.container {
+.container_footer {
   background-color: #383838;
 }
 
@@ -1469,4 +1469,34 @@ fileholder
 
 .delete_icon {
   margin-bottom: 50px;
+}
+
+
+.select_form {
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.news_content {
+  margin-bottom: 3px;
+}
+.img_news {
+  display: flex;
+  align-items: center;
+  margin-left: 7px;
+}
+
+
+.h2_right_news {
+  text-align: right;
+}
+
+
+.title_news {
+  color: black;
+  text-align: center;
+}
+
+.text_news {
+  font-size: 20px;
 }

@@ -22,19 +22,21 @@ $news_category = q("
 ");
 
 if(isset($_POST['news_category']) && $_POST['submit']) {
-    $display_category = q("
+    $news = q("
         SELECT all_news.*, nc.title_cat
         FROM `all_news`
         JOIN news_category nc on nc.id_cat = all_news.category_id
         WHERE `category_id` = " . (int)$_POST['news_category'] . "
         ORDER BY `date` DESC 
     ");
-}
-
-$all_current_news = q("
+} else {
+    $news = q("
         SELECT all_news.*, nc.title_cat
         FROM `all_news`
         JOIN news_category nc on nc.id_cat = all_news.category_id
         ORDER BY `date` DESC 
 
 ");
+}
+
+

@@ -71,7 +71,7 @@ if (isset($_POST['title'], $_POST['category'],$_POST['description'] , $_POST['au
                 exit($_SESSION['info']);
             }
 
-            if (!Upload::resize(Upload::$path_origin, Upload::$path, Upload::$temp, 100, 100)) {
+            if (!Upload::resize(Upload::$path_origin, Upload::$path, Upload::$temp, 150, 150)) {
                 $_SESSION['info'] = Upload::$info['error'];
                 header('Location: /admin/news/edit?id=' . (int)$_GET['id']);
                 exit($_SESSION['info']);
@@ -79,6 +79,7 @@ if (isset($_POST['title'], $_POST['category'],$_POST['description'] , $_POST['au
 
             $res = q("
                 UPDATE `all_news` SET
+                `img_original` = '".es(Upload::$info['original_name'])."', 
                 `img` = '" . es(Upload::$name_resized) . "'
                 WHERE `id` = " . (int)$_GET['id'] . "
                 ");

@@ -977,3 +977,292 @@ Query:
     You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 34' at line 5
 File: D:\OSPanel\domains\alla2\modules\admin\news\main.phpLine:56Date: 2020-11-05 20:41:18============================================
 
+Query: 
+                UPDATE `all_news` SET
+                `img_original` = '20201109-143122img73911.jpg'                 
+                `img`          = '20201109-143122mini60853.jpg'
+                WHERE `id`     = 38
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`img`          = '20201109-143122mini60853.jpg'
+                WHERE `id`     ' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\news\add.phpLine:82Date: 2020-11-09 14:31:22============================================
+
+Query: 
+                UPDATE `all_news` SET
+                `img_original` = '20201109-143537img96236.png'                 
+                `img`          = '20201109-143537mini77171.jpg'
+                WHERE `id`     = 40
+            You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`img`          = '20201109-143537mini77171.jpg'
+                WHERE `id`     ' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\news\add.phpLine:79Date: 2020-11-09 14:35:37============================================
+
+Query:  SELECT all_news.*, nc.title_cat
+        FROM `all_news`
+        JOIN news_category nc on nc.id_cat = all_news.category_id
+        WHERE `category_id` = 0
+        ORDER BY `date` DESC
+        LIMIT 0,
+        
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6
+File: D:\OSPanel\domains\alla2\modules\admin\news\main.phpLine:119Date: 2020-11-10 15:23:39============================================
+
+Query: SELECT * FROM `all_news` LIMIT -10, 10 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 1
+File: D:\OSPanel\domains\alla2\modules\admin\news\main.phpLine:200Date: 2020-11-10 18:16:46============================================
+
+Query: SELECT * FROM `all_news` LIMIT -2, 2 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-2, 2' at line 1
+File: D:\OSPanel\domains\alla2\modules\admin\news\main.phpLine:200Date: 2020-11-10 18:17:33============================================
+
+Query: 
+    SELECT COUNT (id)
+    FROM `all_news`
+FUNCTION main.COUNT does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual
+File: D:\OSPanel\domains\alla2\modules\admin\news\main.phpLine:89Date: 2020-11-11 13:01:14============================================
+
+Query: 
+    SELECT count (*)
+    FROM `all_news`
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*)
+    FROM `all_news`' at line 1
+File: D:\OSPanel\domains\alla2\modules\admin\news\main.phpLine:89Date: 2020-11-11 13:01:56============================================
+
+Query: 
+        SELECT all_news.*, nc.title_cat
+        FROM `all_news`
+        JOIN news_category nc on nc.id_cat = all_news.category_id
+        ORDER BY `date` DESC 
+        LIMIT 0=0,2
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=0,2' at line 5
+File: D:\OSPanel\domains\alla2\modules\admin\news\main.phpLine:140Date: 2020-11-11 15:29:10============================================
+
+Query: SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC  LIMIT {0},{2}You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '{0},{2}' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:55Date: 2020-11-12 15:40:23============================================
+
+Query: SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC  LIMIT {0},{2}You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '{0},{2}' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:55Date: 2020-11-12 15:41:34============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:44:25============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:45:09============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:45:11============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:46:16============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:46:16============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:46:31============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:46:32============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:46:36============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:46:57============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:47:00============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:47:02============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:54:56============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:56:31============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:58:22============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:25Date: 2020-11-16 15:58:23============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-16 16:00:21============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-16 16:00:51============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-16 18:08:25============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-16 18:08:33============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , -9You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , -9' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-16 18:08:33============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , 10' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:28Date: 2020-11-16 18:34:07============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -10 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , 10' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:28Date: 2020-11-16 18:34:08============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -40 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-40 , 10' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:28Date: 2020-11-16 18:34:45============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -40 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-40 , 10' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:29Date: 2020-11-16 18:35:49============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -40 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-40 , 10' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:29Date: 2020-11-16 18:35:50============================================
+
+Query: 
+    SELECT all_news.*, nc.title_cat
+    FROM `all_news`
+    JOIN news_category nc on nc.id_cat = all_news.category_id
+    ORDER BY `date` ASC LIMIT -20 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-20 , 10' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:29Date: 2020-11-16 18:35:59============================================
+
+Query: 
+        SELECT all_news.*, nc.title_cat
+        FROM `all_news`
+        JOIN news_category nc on nc.id_cat = all_news.category_id
+        WHERE `category_id` = 1
+        ORDER BY `date` ASC 
+    LIMIT -10 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , 10' at line 6
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-19 16:14:08============================================
+
+Query: 
+        SELECT all_news.*, nc.title_cat
+        FROM `all_news`
+        JOIN news_category nc on nc.id_cat = all_news.category_id
+        WHERE `category_id` = 1
+        ORDER BY `date` ASC 
+    LIMIT -10 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , 10' at line 6
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:29Date: 2020-11-19 16:17:09============================================
+
+Query: 
+        SELECT all_news.*, nc.title_cat
+        FROM `all_news`
+        JOIN news_category nc on nc.id_cat = all_news.category_id
+        ORDER BY `date` ASC LIMIT -10 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , 10' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-19 18:31:23============================================
+
+Query: 
+        SELECT all_news.*, nc.title_cat
+        FROM `all_news`
+        JOIN news_category nc on nc.id_cat = all_news.category_id
+        ORDER BY `date` ASC LIMIT -10 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , 10' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-19 18:32:09============================================
+
+Query: 
+        SELECT all_news.*, nc.title_cat
+        FROM `all_news`
+        JOIN news_category nc on nc.id_cat = all_news.category_id
+        ORDER BY `date` ASC LIMIT -10 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , 10' at line 4
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-19 18:32:19============================================
+
