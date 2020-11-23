@@ -29,7 +29,7 @@ if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete') {
     exit();
 }
 
-if(isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete_img') {
+if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete_img') {
     q("
         UPDATE `all_news` SET
           `img` = ''
@@ -47,11 +47,8 @@ $news_category = q("
     ORDER BY `title_cat` ASC 
 
 ");
-$num = (int)2;//отображает такое кол-во страниц в пагинации
-$nav = (int)5;// слева и справа по 5
+
 Paginator::$current_page = $_GET['show_page'] ?? 1;
-
-
 if(isset($_GET['news_category']) && $_GET['submit']) {
     Paginator::$category = int($_GET['news_category']);
     $query_count = q("
@@ -81,15 +78,11 @@ if(isset($_GET['news_category']) && $_GET['submit']) {
         ORDER BY `date` ASC ");
 }
 Paginator::count($query_count);//3
-
-
+//создание пути для пагинации
 $uri = $_SERVER['REQUEST_URI'];
 $uri = (explode('?',$_SERVER['REQUEST_URI']))[1] ?? '' ;
 $uri = preg_replace('#show_page=\d#Ui','',$uri);
 $uri = trim($uri,'&');
-//wtf(Paginator::createLink($uri,2,'lala'));
-
-//Paginator::createLink($uri);
 
 if (isset($_SESSION['info'])) {
     $info = $_SESSION['info'];
