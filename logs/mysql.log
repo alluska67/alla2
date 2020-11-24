@@ -1266,3 +1266,66 @@ Query:
         ORDER BY `date` ASC LIMIT -10 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10 , 10' at line 4
 File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-19 18:32:19============================================
 
+Query: 
+        INSERT INTO `authors` SET
+        `name`        = 'fffff',
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:57Date: 2020-11-23 15:41:10============================================
+
+Query: 
+         INSERT INTO `authors&books` SET
+        `books_id`        = 6,
+        `authors_id`        = 7,
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:65Date: 2020-11-23 15:41:28============================================
+
+Query: 
+        SELECT books.*, authors.name,authors&books.books_id
+        FROM `books`,`authors`,`authors&books`
+        ORDER BY `date` ASC LIMIT 1 , 10Unknown column 'authors' in 'field list'
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-23 15:59:11============================================
+
+Query: 
+            SELECT *
+            FROM `authors_books`
+            WHERE `authors_id` = main.authors.authors_id 
+              AND `books_id`  = main.books.books_id
+        
+        Unknown column 'main.authors.authors_id' in 'where clause'
+File: D:\OSPanel\domains\alla2\modules\admin\books\main.phpLine:87Date: 2020-11-23 16:33:28============================================
+
+Query: 
+            SELECT *
+            FROM `authors_books`
+            WHERE `authors_id` = main.authors.authors_id 
+              AND `books_id`  = main.books.books_id
+        
+        Unknown column 'main.authors.authors_id' in 'where clause'
+File: D:\OSPanel\domains\alla2\modules\admin\books\main.phpLine:88Date: 2020-11-23 16:34:26============================================
+
+Query: 
+            SELECT *
+            FROM `authors_books`
+            WHERE `authors_id` = main.authors.authors_id 
+              AND `books_id`  = main.books.books_id
+        
+        Unknown column 'main.authors.authors_id' in 'where clause'
+File: D:\OSPanel\domains\alla2\modules\admin\books\main.phpLine:89Date: 2020-11-23 16:35:02============================================
+
+Query: 
+            SELECT *
+            FROM `authors_books`
+            WHERE `authors_id` = '1',
+              AND `books_id`  = '2'
+        
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+              AND `books_id`  = '2'' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\books\main.phpLine:93Date: 2020-11-23 16:36:19============================================
+
+Query: 
+         INSERT INTO `authors&books` SET
+        `books_id`        = 11,
+        `authors_id`        = 12
+        Table 'main.authors&books' doesn't exist
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:65Date: 2020-11-23 17:44:39============================================
+

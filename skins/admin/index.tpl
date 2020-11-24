@@ -49,21 +49,12 @@
               <ul class="incide_nav">
                 <li class="line_li">
                   <a href="/admin/goods">GOODS<i class="sprite sprite-check_mark"></i></a>
-                  <ul class="drop_menu_services">
-                    <li class="drop_li">
-                      <i class="arrow"></i>
-                      <a href="/admin/goods/add">ADD GOODS</a>
-                    </li>
-                  </ul>
                  </li>
                 <li class="line_li">
                   <a href="/admin/news">NEWS<i class="sprite sprite-check_mark"></i></a>
-                  <ul class="drop_menu_services">
-                    <li class="drop_li">
-                      <i class="arrow"></i>
-                      <a href="/admin/news/add">ADD NEWS</a>
-                    </li>
-                  </ul>
+                </li>
+                <li class="line_li">
+                  <a href="/admin/books">BOOKS<i class="sprite sprite-check_mark"></i></a>
                 </li>
                 <li class="line_li">
                   <a href="/admin/users">Users</a>

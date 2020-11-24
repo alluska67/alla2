@@ -14,7 +14,12 @@
           <p class="card-text text_news"><?=htmlspecialchars($row['text']); ?></p>
           <p class="card-text"><small class="text-muted">Дата создания: <?=htmlspecialchars($row['date']) ;?></small></p>
           <p class="card-text"><small class="text-muted">Автор: <?=htmlspecialchars($row['author']) ;?></small></p><br>
-          <p><a href="/news" class="p-3 mb-2 bg-secondary text-white">Вернуться ко всем новостям</a></p>
+          <? if (isset($_GET['news_category'])) {?>
+            <p><a href="/news?news_category=<?=$_GET['news_category'];?>&submit=search" class="p-3 mb-2 bg-secondary text-white">Вернуться к новостям</a></p>
+          <?}else {?>
+            <p><a href="/news" class="p-3 mb-2 bg-secondary text-white">Вернуться ко всем новостям</a></p>
+
+          <?}?>
         </div>
       </div>
     <?php } ?>
