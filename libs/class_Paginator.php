@@ -16,12 +16,15 @@ class Paginator
 
     public static function q($query) {
         $limit_start = (self::$current_page - 1) * self::$num;
-        if ($limit_start <= 0) {
+
+        if ($limit_start < 0) {
             $limit_start = 1;
         }
         $limit_end = (int)self::$num;
+
         $query_main = $query . 'LIMIT ' . (int)$limit_start . ' , ' . (int)$limit_end;
         return q($query_main);
+
     }
 
     public static function createLink ($uri,$show,$text) {

@@ -12,7 +12,6 @@
           <div>
             <input type="checkbox" name="ids[]" value="<?=(int)($row['id']); ?>">
             <a href="/admin/goods/main?action=delete&id=<?=(int)($row['id']); ?>">Удалить</a>
-
             <a href="/admin/goods/edit?id=<?=(int)($row['id']); ?>" >Редактировать</a>
             <span class="main_name"><strong><?=htmlspecialchars($row['category']); ?></strong></span>
             <span class="main_name"><strong><?=htmlspecialchars($row['name']); ?></strong></span>

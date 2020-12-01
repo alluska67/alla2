@@ -3,11 +3,11 @@
     <div>
       <h3 class="total">Изображение* :</h3>
       <h3><?=($_SESSION['info'] ?? '');?></h3>
-      <?php if(empty($row['img'])) { ?>
+      <?php if(empty($book['img'])) { ?>
         <span><img src="/uploaded/no_image.png" alt="" class="no_image"></span>
       <?php } else { ?>
-        <span><img src="<?='/uploaded/news/'.htmlspecialchars($row['img']); ?>" alt=""></span>
-        <span><a href="/admin/books/edit?action=delete_img&id=<?=(int)($row['id']); ?>"><img src="/skins/admin/img/delete.png" alt="delete photo" class="delete_icon"></a></span>
+        <span><img src="<?='/uploaded/books/'.htmlspecialchars($book['img']); ?>" alt=""></span>
+        <span><a href="/admin/books/edit?action=delete_img&id=<?=(int)($book['books_id']); ?>"><img src="/skins/admin/img/delete.png" alt="delete photo" class="delete_icon"></a></span>
       <?php } ?>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
@@ -18,8 +18,9 @@
              <label class="custom-file-label" for="inputGroupFile01">Выберите изображение</label>
           </div>
         </div>
-      <?=($errors['files'] ?? " " ); ?>
+
     </div>
+      <?=($errors['files'] ?? " " ); ?>
     <div>
       Название книги *:
       <input class="news_table" type="text" name="title" value="<?=htmlspecialchars($book['title'] ?? " "); ?>">

@@ -1329,3 +1329,99 @@ Query:
         Table 'main.authors&books' doesn't exist
 File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:65Date: 2020-11-23 17:44:39============================================
 
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 19,
+        `authors_id`        = 0
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`authors_books`, CONSTRAINT `authors_books_ibfk_1` FOREIGN KEY (`authors_id`) REFERENCES `authors` (`authors_id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:70Date: 2020-11-25 16:17:27============================================
+
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 20,
+        `authors_id`        = 0
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`authors_books`, CONSTRAINT `authors_books_ibfk_1` FOREIGN KEY (`authors_id`) REFERENCES `authors` (`authors_id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:70Date: 2020-11-25 16:20:01============================================
+
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 38,
+        
+        `authors_id`        = Array
+        Unknown column 'Array' in 'field list'
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:80Date: 2020-11-25 16:37:16============================================
+
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 39,
+        
+        `authors_id`        = Array
+        Unknown column 'Array' in 'field list'
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:80Date: 2020-11-25 16:37:49============================================
+
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 40,
+        
+        `authors_id`        = Array
+        Unknown column 'Array' in 'field list'
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:80Date: 2020-11-25 16:38:01============================================
+
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 41,
+        
+        `authors_id`        = Array
+        Unknown column 'Array' in 'field list'
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:80Date: 2020-11-25 16:38:25============================================
+
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 42,
+        
+        `authors_id`        = Array
+        Unknown column 'Array' in 'field list'
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:80Date: 2020-11-25 16:38:43============================================
+
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 43,
+        
+        `authors_id`        = Array
+        Unknown column 'Array' in 'field list'
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:80Date: 2020-11-25 16:39:07============================================
+
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 51,
+        `authors_id`        = Array
+        Unknown column 'Array' in 'field list'
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:79Date: 2020-11-25 16:42:15============================================
+
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 52,
+        `authors_id`        = Array
+        Unknown column 'Array' in 'field list'
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:79Date: 2020-11-25 16:42:42============================================
+
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 53,
+        `authors_id`        = Array
+        Unknown column 'Array' in 'field list'
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:79Date: 2020-11-25 16:43:29============================================
+
+Query: 
+         INSERT INTO `authors_books` SET
+        `books_id`        = 61,
+        `authors_id`        = 0
+        Cannot add or update a child row: a foreign key constraint fails (`main`.`authors_books`, CONSTRAINT `authors_books_ibfk_1` FOREIGN KEY (`authors_id`) REFERENCES `authors` (`authors_id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:79Date: 2020-11-25 16:46:58============================================
+
+Query: 
+    SELECT *
+    FROM `authors`
+    ORDER BY `date` ASC LIMIT 1 , 10Unknown column 'date' in 'order clause'
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:24Date: 2020-11-30 15:00:29============================================
+

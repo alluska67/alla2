@@ -11,45 +11,45 @@ if (isset($_POST['delete'], $_POST['ids'])) {
 
     q("
         DELETE FROM `authors_books`
-        WHERE `books_id` IN (" . $ids . ")
+        WHERE `authors_id` IN (" . $ids . ")
     ");
 
     q("
-        DELETE FROM `books`
-        WHERE `books_id` IN (" . $ids . ")
+        DELETE FROM `authors`
+        WHERE `authors_id` IN (" . $ids . ")
     ");
-    $_SESSION['info'] = 'Книги были удалены';
-    header('Location: /admin/books');
+    $_SESSION['info'] = 'Авторы были удалены';
+    header('Location: /admin/authors');
     exit();
 }
 
 if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete') {
     q("
         DELETE FROM `authors_books`
-        WHERE `books_id` = " . (int)$_GET['id'] . "
+        WHERE `authors_id` = " . (int)$_GET['id'] . "
         
     ");
 
     q("
-        DELETE FROM `books`
-        WHERE `books_id` = " . (int)$_GET['id'] . "
+        DELETE FROM `authors`
+        WHERE `authors_id` = " . (int)$_GET['id'] . "
     ");
 
 
-    $_SESSION['info'] = 'Книга была удалена';
-    header('Location: /admin/books');
+    $_SESSION['info'] = 'Автор был удалён';
+    header('Location: /admin/authors');
     exit();
 }
 
 if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete_img') {
     q("
-        UPDATE `books` SET
+        UPDATE `authors` SET
           `img` = ''
-        WHERE `books_id` = " . (int)$_GET['id'] . "
+        WHERE `authors_id` = " . (int)$_GET['id'] . "
     ");
 
     $_SESSION['info'] = 'Изображение было удалено';
-    header('Location: /admin/books');
+    header('Location: /admin/authors');
     exit();
 }
 
@@ -57,43 +57,53 @@ Paginator::$current_page = $_GET['show_page'] ?? 1;
 
 $query_count = q("
     SELECT COUNT(*) AS `cnt`
-    FROM `books`"
+    FROM `authors`"
 );
 
-$books_res = Paginator::q("
+
+$authors_res = Paginator::q("
     SELECT *
-    FROM `books`
-    ORDER BY `date` ASC ");
+    FROM `authors`
+    ORDER BY `authors_id` ASC 
+ ");
 
 
-$books = [];
-while ($book_row = $books_res->fetch_assoc()) {
+$authors = [];
 
-    $authors_res = q("
+while ($author_row = $authors_res->fetch_assoc()) {
+
+    $books_res = q("
         SELECT *
         FROM `authors_books`
-        WHERE `books_id` = " . (int)$book_row['books_id'] . "
+        WHERE `authors_id` = " . (int)$author_row['authors_id'] . "
     ");
 
-    $authors_name = [];
-    while ($author_row = $authors_res->fetch_assoc()) {
 
-        $res_author_name = q("
+    $books_name = [];
+    while ($book_row = $books_res->fetch_assoc()) {
+
+        $res_book_title = q("
             SELECT *
-            FROM `authors`
-            WHERE `authors_id` = '" . (int)$author_row['authors_id'] . "'
+            FROM `books`
+            WHERE `books_id` = '" . (int)$book_row['books_id'] . "'
         ");
-
-        while ($row_author_name = $res_author_name->fetch_assoc()) {
-            $authors_name[$row_author_name['authors_id']] = $row_author_name['name'];
+        //Все книги автора
+        while ($row_book_title = $res_book_title->fetch_assoc()) {
+            $books_name[$row_book_title['books_id']] = $row_book_title['title'];
         }
+//        while ($row_book = $res_book_title->fetch_assoc()) {
+//            $books_name[$row_book['books_id']] = [
+//                'title' => $row_book['title'],
+//                'image' => $row_book['img']
+//            ];
+//        }
     }
 
-    $book_row['author'] = $authors_name;
-    $books[] = $book_row;
+    $author_row['book'] = $books_name;
+
+    $authors[] = $author_row;
+    //wtf($authors);
 }
-
-
 
 Paginator::count($query_count);//3
 //создание пути для пагинации

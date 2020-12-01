@@ -1,20 +1,12 @@
 <?php
-
-//$choose_news_category = q("
-//    SELECT *
-//    FROM `news_category`
-//");
-
+//wtf($_POST);
 if (isset($_POST['title'],$_POST['description'], $_POST['pages'],$_FILES['file'],$_POST['author'],  $_POST['add'])) {
-
+//wtf($_POST);
     $errors = [];
-// wtf($_POST['title']);
+
     if (empty($_POST['title'])) {
         $errors ['title'] = 'Вы не указали название книги';
     }
-//    if (empty($_POST['category'])) {
-//        $errors ['category'] = 'Вы не указали раздел книги';
-//    }
     if (empty($_POST['description'])) {
         $errors ['description'] = 'Вы не написали описание книги';
     }
@@ -31,8 +23,6 @@ if (isset($_POST['title'],$_POST['description'], $_POST['pages'],$_FILES['file']
         $errors ['price'] = 'Вы не указали стоимость книги';
     }
 
-
-
     if (!count($errors)) {
 
         //удаление лишних пробелов
@@ -41,28 +31,36 @@ if (isset($_POST['title'],$_POST['description'], $_POST['pages'],$_FILES['file']
         q("
         INSERT INTO `books` SET
         `title`        = '" . es($_POST['title']) . "',
-        `description`         = '" . es($_POST['description']) . "',
-        `pages`         = " .(int)$_POST['pages'] . ",
-        `price`         = " .(float)$_POST['price'] . ",
+        `description`  = '" . es($_POST['description']) . "',
+        `pages`        = " .(int)$_POST['pages'] . ",
+        `price`        = " .(float)$_POST['price'] . ",
         `date`         = NOW()
         "
         );
         $books_id = DB::_()->insert_id;
 
-
-
-
-        q("
-        INSERT INTO `authors` SET
-        `name`        = '" . es($_POST['author']) . "'
+        $res_author = q("
+            SELECT  `authors_id`
+            FROM `authors`
+            WHERE `name` = '" . es($_POST['author']) ."'
+            LIMIT 1
         ");
 
-        $authors_id = DB::_()->insert_id;
+        if (!$res_author->num_rows) {
+            q("
+                INSERT INTO `authors` SET
+                `name`        = '" . es($_POST['author']) . "'
+                ");
+            $authors_id = DB::_()->insert_id;
+        } else {
+            $row_authors_id = $res_author->fetch_assoc();
+            $authors_id = $row_authors_id['authors_id'];
+        }
 
         q("
          INSERT INTO `authors_books` SET
         `books_id`        = " . (int)$books_id . ",
-        `authors_id`        = " . (int)$authors_id . "
+        `authors_id`        = " .(int)$authors_id . "
         ");
 
         if(isset($_FILES['file']) && $_FILES['file']['error'] != 4) {

@@ -57,6 +57,9 @@
                   <a href="/admin/books">BOOKS<i class="sprite sprite-check_mark"></i></a>
                 </li>
                 <li class="line_li">
+                  <a href="/admin/authors">AUTHORS<i class="sprite sprite-check_mark"></i></a>
+                </li>
+                <li class="line_li">
                   <a href="/admin/users">Users</a>
                 </li>
                 <?php if(isset($_SESSION['user'])) { ?>
