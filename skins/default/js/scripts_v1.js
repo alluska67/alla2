@@ -1,33 +1,80 @@
 
+function hideShow(id)  {
+    var on_click = document.getElementById(id);
 
-function hide (id){
-    var x = document.getElementById(id);
-
-    console.log(x);
-    if (x.style.display === 'block') {
-        x.style.display = 'none';
+    if (on_click.style.display === 'block') {
+        on_click.style.display = 'none';
     } else {
-        x.style.display = 'block';
-
+        on_click.style.display = 'block';
     }
 }
+
+// function close(id) {
+//     var x = document.getElementById(id).onmouseleave;
+// }
+// r = 0;
+// function test () {
+//     ++r;
+//     console.log('lalala'+ r);
+//     if(r == 5) {
+//         clearInterval(intervalID); // останавливает интервал
+//     }
+// }
+// // debugger;
+// function hide () {
+//     document.getElementById('xxx').style.display = 'none';
+// }
 //
 // window.onload = function () {
-//     alert(document.getElementById('xxx').style.display);
+//
+//     setTimeout(
+//         hide
+//     , 2000);
+//
+// }
+//var intervalID = setInterval(test,2000);
+
+
+//intervalID = setTimeout(test,2000);
+
+
+
+
+
+
+
+
+
+// window.onload = function () {
+//     document.getElementById('xxx').style.backgroundColor = 'red';
+//
+//
+//
+//     //document.getElementById('click').onclick = hideShow;
+//
+//     // document.getElementById('click').onclick = function () {
+//     //     x = document.getElementById('xxx');
+//     //     if (x.style.display == 'block') {
+//     //         x.style.display = 'none';
+//     //     } else  {
+//     //         x.style.display = 'block';
+//     //     }
+//     // }
+// }
+//
+// function del() {
+//     l = document.getElementById('sendtext').value.length;
+//     if(l<5) {
+//         alert('Вы не заполнили поле. Минимум 5 символов. Вы ввели' + l);
+//         return false;
+//     } else {
+//         return true;
+//     }
+// }
+// function areYouSure () {
+//     return confirm('Вы уверенны, что хотите удалить?');//true,false
 // }
 
-
-function del() {
-    var l = document.getElementById('key').value.length;
-    if(l <5 ) {
-        alert('Вы ввели меньше' + l);
-        return false;
-    }
-}
-
-function areYouSure(){
-    return confirm('Вы уверены, что хотите удалить?');
-}
 
 
 // x = 0;

@@ -6,7 +6,7 @@
       <?php if(empty($authors_row['img'])) { ?>
         <span><img src="/uploaded/no_image.png" alt="" class="no_image"></span>
       <?php } else { ?>
-        <span><img src="<?='/uploaded/books/'.htmlspecialchars($authors_row['img']); ?>" alt=""></span>
+        <span><img src="<?='/uploaded/authors/'.htmlspecialchars($authors_row['img']); ?>" alt=""></span>
         <span><a href="/admin/books/edit?action=delete_img&id=<?=(int)($authors_row['authors_id']); ?>"><img src="/skins/admin/img/delete.png" alt="delete photo" class="delete_icon"></a></span>
       <?php } ?>
         <div class="input-group mb-3">
@@ -20,20 +20,20 @@
         </div>
     </div>
       <?=($errors['files'] ?? " " ); ?>
-    <div>
-        Имя автора *:
-      <input class="news_table" type="text" name="name" value="<?=htmlspecialchars($authors_row['name'] ?? " "); ?>">
+    <div class="row mx-md-n2">
+      <p class="col-2">Имя автора *:</p>
+      <div class="col-2"><input class="news_table" type="text" name="name" value="<?=htmlspecialchars($authors_row['name'] ?? " "); ?>"></div>
       <?=($errors ['name'] ?? " ");?>
     </div>
-    <div>
-        Краткая биография *:
-      <textarea class="news_table" name="biography" id="" cols="30" rows="10"><?=htmlspecialchars($authors_row['biography'] ?? " "); ?></textarea>
-      <?=($errors ['biography'] ?? " "); ?>
+    <div class="row mx-md-n2">
+      <p class="col-2">Краткая биография *:</p>
+      <div class="col-2"><textarea class="news_table" name="biography" id="" cols="30" rows="10"><?=htmlspecialchars($authors_row['biography'] ?? " "); ?></textarea></div>
+      <?=($errors ['biography'] ?? " ");?>
     </div>
-    <div>
-        Годы жизни *:
-      <input class="news_table" name="years_of_life" value="<?=htmlspecialchars($authors_row['years_of_life'] ?? " "); ?>">
-      <?=($errors ['years_of_life'] ?? " "); ?>
+    <div class="row mx-md-n2">
+      <p class="col-2">Год рождения *:</p>
+      <div class="col-2"><input class="news_table" name="years" value="<?=(int)$authors_row['years'] ?? " " ?>"></div>
+      <?=($errors ['years'] ?? " ");?>
     </div>
     <input class="add_bottom" type="submit" name="edit" value="Отредактировать данные об авторе">
   </form>

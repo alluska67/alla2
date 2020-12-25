@@ -5,6 +5,5 @@ if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'show') {
         FROM `all_news`
         WHERE `id` = " . (int)$_GET['id'] . "
         LIMIT 1
-
     ");
 }

@@ -1,11 +1,5 @@
 <?php
 
-//$news_category = q("
-//    SELECT all_news.*, nc.title_cat
-//    FROM `all_news`
-//    JOIN news_category nc on nc.id = all_news.category_id
-//");
-
 $news_category = q("
     SELECT *
     FROM `news_category`
@@ -15,17 +9,16 @@ $news_category = q("
 if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete_img') {
     q("
         UPDATE `all_news` SET
-          `img` = ''
+        `img` = ''
         WHERE `id` = " . (int)$_GET['id'] . "
     ");
 
     $_SESSION['info'] = 'Изображение было удалено';
-    header('Location: /admin/news/edit?id='.int($_GET['id']));
+    header('Location: /admin/news/edit?id=' . int($_GET['id']));
     exit();
 }
 
 if (isset($_POST['title'], $_POST['category'],$_POST['description'] , $_POST['author'], $_POST['text'], $_FILES['file'], $_POST['edit'])) {
-//    wtf($_POST);
     $errors = [];
 
     if (empty($_POST['title'])) {
@@ -53,14 +46,14 @@ if (isset($_POST['title'], $_POST['category'],$_POST['description'] , $_POST['au
         $_POST = trimAll($_POST);
 
         q("
-        UPDATE `all_news` SET
-        `title`        = '" . es($_POST['title']) . "',
-        `category_id`  = '" . (int)$_POST['category'] . "',
-        `author`       = '" . es($_POST['author']) . "',
-        `description`         = '" . es($_POST['description']) . "',
-        `text`         = '" . es($_POST['text']) . "',
-        `date_edited`         = NOW()
-        WHERE `id` = " . (int)$_GET['id'] . "
+            UPDATE `all_news` SET
+            `title`        = '" . es($_POST['title']) . "',
+            `category_id`  = " . (int)$_POST['category'] . ",
+            `author`       = '" . es($_POST['author']) . "',
+            `description`  = '" . es($_POST['description']) . "',
+            `text`         = '" . es($_POST['text']) . "',
+            `date_edited`  = NOW()
+            WHERE `id`     = " . (int)$_GET['id'] . "
         ");
 
         if (isset($_FILES['file']) && $_FILES['file']['error'] != 4) {
@@ -79,10 +72,10 @@ if (isset($_POST['title'], $_POST['category'],$_POST['description'] , $_POST['au
 
             $res = q("
                 UPDATE `all_news` SET
-                `img_original` = '".es(Upload::$info['original_name'])."', 
-                `img` = '" . es(Upload::$name_resized) . "'
-                WHERE `id` = " . (int)$_GET['id'] . "
-                ");
+                `img_original` = '" . es(Upload::$info['original_name']) . "', 
+                `img`          = '" . es(Upload::$name_resized) . "'
+                WHERE `id`     = " . (int)$_GET['id'] . "
+            ");
             $_SESSION['info'] = Upload::$info['status'];
             header('Location: /admin/news');
             exit();
@@ -99,9 +92,9 @@ if (isset($_POST['title'], $_POST['category'],$_POST['description'] , $_POST['au
                 $_SESSION['info'] = 'Загрузите изображение новости';
             } else {
                 $res = q("
-                UPDATE `all_news` SET
-                `img` = '" . es($row['img']) . "'
-                WHERE `id` = " . (int)$_GET['id'] . "
+                    UPDATE `all_news` SET
+                    `img` = '" . es($row['img']) . "'
+                    WHERE `id` = " . (int)$_GET['id'] . "
                 ");
                 $_SESSION['info'] = Upload::$info['status'];
                 header('Location: /admin/news');
@@ -119,8 +112,6 @@ $all_news = q( "
     LIMIT 1
 ");
 
-
-
 if (!$all_news->num_rows) {
     $_SESSION['info'] = 'Запись отсутствует';
     header('Location: /admin/news');
@@ -129,16 +120,12 @@ if (!$all_news->num_rows) {
 
 $row = $all_news->fetch_assoc();
 
-
-
 if (isset($_POST['title'])) {
     $row['title'] = $_POST['title'];
 }
 if (isset($_POST['category'])) {
     $row['category'] = $_POST['category'];
 }
-
-
 if (isset($_POST['author'])) {
     $row['author'] = $_POST['author'];
 }

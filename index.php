@@ -7,8 +7,10 @@ session_start();
 //Конфиг сайта с константами
 include_once './config.php';
 
+
 //Стандартные функции по сайту и библиотеки
 include_once './libs/default.php';
+
 
 // Подключение к Базе Данных
 //$mysqli = mysqli_connect(Core::$DB_LOCAL,Core::$DB_LOGIN,Core::$DB_PASS,Core::$DB_NAME);//Соединение

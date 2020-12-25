@@ -5,87 +5,96 @@ if (isset($_POST['delete'], $_POST['ids'])) {
     foreach ($_POST['ids'] as $k => $v) {
         $_POST['ids'][$k] = (int)$v;
     }
+
     $ids = implode(',', $_POST['ids']);
 
     q("
-        DELETE FROM `all_news`
-        WHERE `id` IN (" . $ids . ")
+        DELETE FROM `authors_books`
+        WHERE `books_id` IN (" . $ids . ")
     ");
-    if(isset($_GET['news_category']) && $_GET['submit']) {
-        $_SESSION['info'] = 'Новости были удалены';
-        header('Location: /admin/news?news_category='.$_GET['news_category'].'&submit=search');
-        exit();
-    } else {
-        $_SESSION['info'] = 'Новости были удалены';
-        header('Location: /admin/news');
-        exit();
-    }
+
+    q("
+        DELETE FROM `books`
+        WHERE `books_id` IN (" . $ids . ")
+    ");
+    $_SESSION['info'] = 'Книги были удалены';
+    header('Location: /admin/books');
+    exit();
 }
 
 if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete') {
     q("
-        DELETE FROM `all_news`
-        WHERE `id` = " . (int)$_GET['id'] . "
-    
+        DELETE FROM `authors_books`
+        WHERE `books_id` = " . (int)$_GET['id'] . "
+        
     ");
 
-    $_SESSION['info'] = 'Новость была удалена';
-    header('Location: /admin/news');
+    q("
+        DELETE FROM `books`
+        WHERE `books_id` = " . (int)$_GET['id'] . "
+    ");
+
+    $_SESSION['info'] = 'Книга была удалена';
+    header('Location: /admin/books');
     exit();
 }
 
 if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete_img') {
     q("
-        UPDATE `all_news` SET
+        UPDATE `books` SET
         `img` = ''
-        WHERE `id` = " . (int)$_GET['id'] . "
+        WHERE `books_id` = " . (int)$_GET['id'] . "
     ");
 
     $_SESSION['info'] = 'Изображение было удалено';
-    header('Location: /admin/news');
+    header('Location: /admin/books');
     exit();
 }
 
-$news_category = q("
-    SELECT *
-    FROM `news_category`
-    ORDER BY `title_cat` ASC 
-
-");
-
 Paginator::$current_page = $_GET['show_page'] ?? 1;
 
-if (isset($_GET['news_category']) && $_GET['submit']) {
-    Paginator::$category = int($_GET['news_category']);
-    $query_count = q("
-        SELECT COUNT(*) AS `cnt`
-        FROM `all_news`
-        WHERE `category_id` = " . (int)Paginator::$category . " 
+$query_count = q("
+    SELECT COUNT(*) AS `cnt`
+    FROM `books`
+");
+
+$books_res = Paginator::q("
+    SELECT *
+    FROM `books`
+    ORDER BY `date` ASC 
+");
+
+
+$books = [];
+while ($book_row = $books_res->fetch_assoc()) {
+
+    $authors_res = q("
+        SELECT *
+        FROM `authors_books`
+        WHERE `books_id` = " . (int)$book_row['books_id'] . "
     ");
 
-    $news = Paginator::q("
-        SELECT all_news.*, nc.title_cat
-        FROM `all_news`
-        JOIN news_category nc on nc.id_cat = all_news.category_id
-        WHERE `category_id` = " . (int)Paginator::$category . "
-        ORDER BY `date` ASC 
-    ");
+    $authors_name = [];
+    while ($author_row = $authors_res->fetch_assoc()) {
 
-} else {
-    $query_count = q("
-        SELECT COUNT(*) AS `cnt`
-        FROM `all_news`"
-    );
+        $res_author_name = q("
+            SELECT *
+            FROM `authors`
+            WHERE `authors_id` = '" . (int)$author_row['authors_id'] . "'
+        ");
 
-    $news = Paginator::q("
-        SELECT all_news.*, nc.title_cat
-        FROM `all_news`
-        JOIN news_category nc on nc.id_cat = all_news.category_id
-        ORDER BY `date` ASC 
-    ");
+        while ($row_author_name = $res_author_name->fetch_assoc()) {
+            $authors_name[$row_author_name['authors_id']] = $row_author_name['name'];
+        }
+    }
+    $book_row['author'] = $authors_name;
+    $books[] = $book_row;
 }
+
+
+
 Paginator::count($query_count);
-//создание пути для пагинации
+
 $uri = $_SERVER['REQUEST_URI'];
 $uri = (explode('?',$_SERVER['REQUEST_URI']))[1] ?? '' ;
 $uri = preg_replace('#show_page=\d#Ui','',$uri);

@@ -12,6 +12,7 @@
   <link href="/skins/<?=Core::$SKIN;?>/css/landing.css" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php if(count(Core::$CSS)) { echo implode("\n",Core::$CSS); } ?>
+    <?php Core::$JS[] = '<script type="text/javascript" src="/skins/default/js/scripts_v1.js"></script>'; ?>
     <?php if(count(Core::$JS)) { echo implode("\n",Core::$JS); } ?>
 </head>
 <body>
@@ -47,8 +48,26 @@
             <a href="/cab/main_cab" style="font-size: 13px;">Личный кабинет</a>
           <?php } else { ?>
             <p>Здравствуйте, пользователь!</p>
-            <a href="/cab/authorization">Авторизация</a>
-            <a href="/cab/registration">Регистрация</a>
+            <div class="auth_block">
+              <a href="/cab/registration">  Регистрация</a>
+              <?php if($_SERVER['REQUEST_URI'] != '/cab/authorization') { ?>
+              <div id="auth_modal" class="auth_text" onclick="hideShow('auth_modal_open');">Авторизироваться  &nbsp</div>
+              <div id="auth_modal_open" class="authorization_modal"  style="display: none">
+                <div class="authorization_inside">
+                  <?php if (!isset($status) || $status != 'Ok') { echo $errors ?? " "; ?>
+                    <form action="/cab/authorization" method="post" class="auth_form">
+
+                      Login:<input class="cab_table" type="text" name="login"><br>
+                      Pass: <input class="cab_table" type="password" name="password"><br>
+                      <input type="hidden" name="uri" value="<?=$_SERVER['REQUEST_URI'];?>" >
+                      <input type="checkbox" value="autoauth" name="autoauth" id="autoauth1"><label for="autoauth1">Запомнить меня для автовхода</label><br>
+                      <input class="cab_table" type="submit" name="submit" value="Вход">
+                    </form>
+                  <?php } ?>
+                </div>
+              </div>
+              <?php } ?>
+            </div>
           <?php }?>
       </div>
     </div>
@@ -89,200 +108,8 @@
           <nav class="main_nav">
             <ul class="incide_nav">
               <li class="line_li">
-                <a href="/about">about</a>
-              </li>
-              <li class="line_li_services">
-                <a href="/services">services<i class="sprite sprite-check_mark"></i></a>
-                <ul class="drop_menu_services">
-                  <li class="drop_li">
-                    <i class="arrow"></i>
-                    <a href="#">Investment</a>
-                  </li>
-                  <li class="drop_li">
-                    <i class="arrow"></i>
-                    <a href="#">Exit Planning</a>
-                  </li>
-                  <li class="drop_li">
-                    <i class="arrow"></i>
-                    <a href="#">Business Planning</a>
-                  </li>
-                  <li class="drop_li">
-                    <i class="arrow"></i>
-                    <a href="#">Property</a>
-                  </li>
-                  <li class="drop_li">
-                    <i class="arrow"></i>
-                    <a href="#">M&A</a>
-                  </li>
-                  <li class="drop_li">
-                    <i class="arrow"></i>
-                    <a href="#">Market Research</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="line_li">
                 <a href="/projects">projects</a>
               </li>
-              <!--                <li class="line_li_blog">-->
-              <!--                  <a href="/static/blog">blog<i class="sprite sprite-check_mark"></i></a>-->
-              <!--                  <ul class="drop_menu_blog">-->
-              <!--                    <li class="drop_li_name">-->
-              <!--                      <a href="#">blog layouts</a>-->
-              <!--                      <ul class="drop_menu2">-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Classic</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Modern Listing</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Grid</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Masonry</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Justify</a>-->
-              <!--                        </li>-->
-              <!--                      </ul>-->
-              <!--                    </li>-->
-              <!--                    <li class="drop_li_name">-->
-              <!--                      <a href="/">post formats</a>-->
-              <!--                      <ul class="drop_menu2">-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="/">Standart</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="/">Image Format</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="/">Gallery Format</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="/">Quote Format</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="/">Link Format</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="/">Video Format</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="/">Audio Format</a>-->
-              <!--                        </li>-->
-              <!--                      </ul>-->
-              <!--                    </li>-->
-              <!--                    <li class="drop_li_name">-->
-              <!--                      <a href="/">Sidebar</a>-->
-              <!--                      <ul class="drop_menu2">-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="/">Left Sidebar</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="/">Right Sidebar </a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="/">No Sidebar</a>-->
-              <!--                        </li>-->
-              <!--                      </ul>-->
-              <!--                    </li>-->
-              <!--                  </ul>-->
-              <!--                </li>-->
-
-              <!--                <li class="line_li_features">-->
-              <!--                  <a href="/static/features">features<i class="sprite sprite-check_mark"></i></a>-->
-              <!--                  <ul class="drop_menu_features">-->
-              <!--                    <li class="drop_li_name">-->
-              <!--                      <a href="#">General</a>-->
-              <!--                      <ul class="drop_menu2">-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Careers</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Pricing</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Clients</a>-->
-              <!--                        </li>-->
-              <!--                      </ul>-->
-              <!--                    </li>-->
-              <!--                    <li class="drop_li_name">-->
-              <!--                      <a href="#">Elements 2</a>-->
-              <!--                      <ul class="drop_menu2">-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Pricing Table</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Slider</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Tabs</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Text</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Toggles</a>-->
-              <!--                        </li>-->
-              <!--                      </ul>-->
-              <!--                    </li>-->
-              <!--                    <li class="drop_li_name">-->
-              <!--                      <a href="#">Elements</a>-->
-              <!--                      <ul class="drop_menu2">-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Animated Counter</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Audio</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Call To Action</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Contact Forms</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Images</a>-->
-              <!--                        </li>-->
-              <!--                        <li class="drop_li2">-->
-              <!--                          <i class="arrow"></i>-->
-              <!--                          <a href="#">Maps</a>-->
-              <!--                        </li>-->
-              <!--                      </ul>-->
-              <!--                    </li>-->
-              <!--                  </ul>-->
-              <!--                </li>-->
-              <!--                <li class="line_li">-->
-              <!--                  <a href="index.php?module=static&page=contacts">contacts</a>-->
-              <!--                </li>-->
               <li class="line_li_pages">
                 <a href="/static/pages">pages<i class="sprite sprite-check_mark"></i></a>
                 <ul class="drop_menu_pages">
@@ -400,18 +227,6 @@
                   </li>
                 </ul>
               </li>
-              <!--                --><?php //if($_SERVER['REMOTE_ADDR'] == '127.0.0.1' && !isset($_COOKIE['access'])) { ?>
-              <!--                <li class="administrator">-->
-              <!--                  <a href="/static/form">Sign in</a>-->
-              <!--                </li>-->
-              <!--                --><?php //} elseif (isset($_COOKIE['access']) && $_COOKIE['access'] == '1') { ?>
-              <!--                <li class="administrator">-->
-              <!--                  <a href="/static/admin">Admin</a>-->
-              <!--                </li>-->
-              <!--                <li class="exit">-->
-              <!--                  <a href="/static/exit">Exit</a>-->
-              <!--                </li>-->
-              <!--                --><?php //} ?>
               <li class="game">
                 <a href="/game">Game</a>
               </li>
@@ -421,6 +236,12 @@
               <li class="comments">
                 <a href="/comments">Comments</a>
               </li>
+              <li class="news">
+                <a href="/authors">Authors</a>
+              </li>
+              <li class="news">
+                <a href="/books">Books</a>
+              </li>
                 <?php if(isset($_SESSION['user']) && $_SESSION['user']['access'] != 5) { ?>
                   <li class="news">
                     <a href="/news">News</a>
@@ -429,28 +250,22 @@
               <li class="news">
                 <a href="/goods">Goods</a>
               </li>
-              <li class="news">
-                <a href="/cab/registration">Reg</a>
-              </li>
-              <li class="news">
-                <a href="/cab/authorization">Auth</a>
-              </li>
-                <?php if(isset($_SESSION['user'])) { ?>
-                  <li class="news">
-                    <a href="/cab/exit">Exit</a>
-                  </li>
-                <?php } ?>
+              <?php if(!isset($_SESSION['user'])) { ?>
+                <li class="news">
+                  <a href="/cab/authorization">Auth</a>
+                </li>
+                <li class="news">
+                  <a href="/cab/registration">Reg</a>
+                </li>
+              <?php } else { ?>
+                <li class="news">
+                  <a href="/cab/exit">Exit</a>
+                </li>
+              <?php } ?>
             </ul>
           </nav>
         </div>
       </div>
-      <div class="block_search">
-        <div class="search_inside">
-          <span class="search"><a class="sprite sprite-loupe2"></a></span>
-          <input type="search" id="search"/>
-        </div>
-      </div>
-    </div>
   </div>
 </header>
 <main class="clearfix">
@@ -576,6 +391,7 @@
       </div>
     </div>
   </div>
+
   </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

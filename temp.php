@@ -1,4 +1,10 @@
+<script type="text/javascript" src="skins/default/js/scripts_v1.js"></script>
 <?php
+if (password_verify('lalala', '$2y$10$aAfvFN.Ow7uRXS54utgpyu8YgMvth1CH.KgYvvxNFUyPu5j4u6TJa')) {
+    wtf(111);
+}else {
+    wtf(222);
+}
 /*
 str_replace('Vasy','K999','Vasyaa lubit Hui');
 
@@ -164,73 +170,237 @@ if(trim($text) != $text) {
 }
 
 */
-//function wtf($array, $stop = false) {
-//    echo '<pre>'.print_r($array,1).'</pre>';
-//    if(!$stop) {
-//        exit();
-//    }
-//}
-
+function wtf($array, $stop = false) {
+    echo '<pre>'.print_r($array,1).'</pre>';
+    if(!$stop) {
+        exit();
+    }
+}
+$var = 10;
 ?>
-<head>
-    <script type="text/javascript" src="/skins/default/js/scripts_v1.js"></script>
-
-</head>
-<body onunload="alert('Уже уходишь?')">
-caas
-<form action="" method="post" enctype="multipart/form-data" style="background-color: #603a4e">
-    <input type="file" name="file" value="выберите файл" accept="image/jpeg,image/jpg,image/png,image/gif,image/bmp">
-    <input type="submit" name="submit" value="загрузить файл">
-    <input type="checkbox" id = "aaa" style=" " onclick="hide('111')">Удалить
-    </form>
-
-    <div id = "111"  style="display:none;width: 150px;background-color: brown;height: 30px;position: fixed;margin-left: 370px;padding-bottom: 23px;float: left;">
-        <p>Do you want to delete?</p>
-    </div>
-
-    <div id="click" style="font-size: 16px;" onclick = "hide('xxx')">Нажми!</div>
-    <div id = "xxx" style="display: block" >text</div>
 
 
+<script>
+$var = '<?php echo (int)$var;?>';
+
+var users = {
+    'user1' : {
+        'Имя' : 'Александр',
+        'Nick' : 'Pilotka',
+        'age' : 32,
+        'skill' : 1000500
+    },
+    'user2' : {
+        'Имя' : 'Петя',
+        'Nick' : 'Коля',
+        'age' : 36,
+        'skill' : 10600
+    },
+    'user3' : {
+        'Имя' : 'Валя',
+        'Nick' : 'Нос',
+        'age' : 17,
+        'skill' : 100
+    },
+};
+//console.log('Пользователь : ' + users.user1.Nick + ' ' + users['user1']['age']);
 
 
-<!--    <script>-->
-<!--        x = document.getElementById('xxx').innerHTML;-->
-<!--        document.getElementById('xxx').innerHTML = 'Что хотим, то и пишем';-->
-<!--        document.getElementById('xxx').style.backgroundColor = 'blue';-->
-<!--        alert(document.getElementById('xxx').innerHTML)-->
-<!---->
-<!--        function calc (num1,num2,action) {-->
-<!--            var res = 0;-->
-<!--            if(action == undefined) {-->
-<!--                action = 'plus';-->
-<!--            }-->
-<!---->
-<!--            if(action == 'plus') {-->
-<!--                res = num1 + num2;-->
-<!--            }else if(action == 'minus') {-->
-<!--                res = num1 - num2;-->
-<!--            }-->
-<!--            return res;-->
-<!--        }-->
-<!--        x = calc(1,2);-->
-<!--        alert(x);-->
-<!--        y = calc(2,3,'minus')-->
-<!--        alert(y);-->
-<!--     </script>-->
+// for(key in users) {
+//     //console.log(users[key].Имя + ':' + users[key].Nick + ', ' + users[key].age)
+// }
+// var i = 0;
+// while(i < 3) {
+//     if(++i%2) {
+//         console.log(i*2);
+//     } else {
+//         console.log(i+1);
+//     }
+// }
+
+var i = 0;
+while(i < 3) {
+    if(++$i%2==0) {
+        console.log(i*2);
+    } else {
+        console.log(i+1);
+    }
+}
+
+    /*
+alert('Hello World');
+ без $;
+ конкатенация = символ + вместо .
+ ; ставить не обязательно
+x=1;
+y=2;
+result = x + y; // сложение
+alert(x+'+'+y+'='+result);
+
+//Циклы
+x=1;
+while (x<3) {
+    //alert(x);
+    ++x;
+}
+for ..in аналог foreach, для обьектов
+prompt()- просьба что то ввести
+x =  prompt('Сколько вам лет', '18');
+alert(x);
+confirm - подтверждение какого либо действия
+if(confirm('Delete?')) {
+    //запрос на сервер, удаление
+    alert('вы согласились');
+} else {
+    alert('вы отказались');
+}
+
+var x - локальная (не видна во внешней среде(только в функции), чтобы не затирали переменные глобальные)
+x - глобальная
+parseInt('12px') // 12 приведение к типу integer  (int)
+parseFloat('6px') // 6 приведение к типу float
+
+y = 3;
+function calc (num1,num2,action) {
+    //значение по умолчанию
+    if(action == undefined) {
+        action = 'plus';
+    }
+    y = 1;
+    var res = 0;
+    if(action == 'plus') {
+        res = num1 + num2;
+    }
+    if(action == 'minus') {
+        res = num1 - num2;
+    }
+    return res;
+}
+alert(y);
+x = calc(1000150,999999999999,'minus');
+alert(y);
+y = 7;
+alert(y);
+Урок 34
+Ссылаемся на обьект
+<div id = "lalala"> = у всех уникальный
+либо обращаться через точку по дереву к обьекту- html.body.div.form.input
+id = "lalala".form[0]- 1 форма
+window -  окно браузера(не обязательно указывать), document - содержание
+window.document.body.div.text
+document.getElementById('xxx')- обращение сразу к элементу
+innerHTML - текст внутри div
+x=5; - set
+alert(x) - get
+set - даём значение
+get - получаем значение
+ document.getElementById('xxx').innerHTML = 'Что хотим, то и пишем';
+ x = document.getElementById('xxx').innerHTML; - GET , и его помещаем в переменную
+        document.getElementById('xxx').innerHTML = 'Что хотим, то и пишем';
+        document.getElementById('xxx').style.backgroundColor = 'red';
+        alert(3);
+        document.getElementById('xxx').style.display = 'none';
+        alert(4);
+        document.getElementById('xxx').style.display = ''; - оригинальное значение - block
+событие onclick="" - внутри кавычек идёт всё, что мы написали в <script>
+onclick="alert('Ура!')"
+<div id="xxx" style="background-color: yellow ;display: block">хуй</div>
+<div style="font-size: 16px;" onclick="hide();">Нажми</div>
+<script>
+    function hide()  {
+        if (document.getElementById('xxx').style.display == 'block') {
+            document.getElementById('xxx').style.display = 'none';
+        } else  {
+            document.getElementById('xxx').style.display = 'block';
+        }
+    }
+    function hide()  {
+    x = document.getElementById('xxx');
+    if (x.style.display == 'block') {
+        x.style.display = 'none';
+    } else  {
+        x.style.display = 'block';
+    }
+
+<input id = "aaa" type="checkbox" checked="checked">
+document.getElementById('aaa').checked == 'checked'
+дерево формируется с верху в низ
+консоль ошибок в браузере ctrl+shift+j
+<div id="xxx" style="background-color: yellow ;display: block">хуй</div>
+<div style="font-size: 16px;" onclick="hideShow();">Нажми</div>
+
+    function hideShow()  {
+       var x = document.getElementById('xxx');
+        if (x.style.display == 'block') {
+            x.style.display = 'none';
+        } else  {
+            x.style.display = 'block';
+        }
+    }
+else if
+по загрузке window.onload = function () { } происходит событие
+onclick="alert(1); return false" - останавливает стандартное действие браузера(переадресация не осуществляется)
+console.log - можем мониторить загрузку скрипта без alert
+запрос у сервера новой информации за какой то период для чата
+5-7 секунд
+интервал вызывает
+setInterval(test,1000) / что делаем, время - 1000 = 1с
+var intervalID = setInterval(test(),2000);
+clearInterval(intervalID); // останавливает интервал
+чтобы передавать аргументы в функцию, нужно создать пустую функцию
+var intervalID = setInterval(function() {test('lala','jjd'); hide();},2000);
+
+setTimeout - вызывается 1 раз через то время, чтомы указали
+intervalID = setTimeout(test,2000);
+var users = { //обьект}
+var users = { 'Вася' : 'Пупкин', 'key2' : 'value2' };
+alert(users['Вася']);//Вызов обьекта
+alert(users.key2);//Вызов обьекта
+var users = {
+    'user1' : {
+        'Имя' : 'Александр',
+        'Nick' : 'Pilotka',
+        'age' : 32,
+        'skill' : 1000500
+    },
+    'key2' : 'value2'
+};
+//console.log('Пользователь : ' + users.user1.Nick + ' ' + users['user1']['age']);
 
 
-<!--<a href="http://www.google.com" onclick="alert(1); return true;">Google</a>-->
-<!---->
-<!--<a href="http://www.google.com" onclick="return areYouSure()">Google</a>-->
-<!---->
-<!--<form action="http://www.google.com" method="get" onsubmit="return areYouSure();">-->
-<!--    <input type="text" id="key" value="">-->
+for(key in users.user1) {
+    console.log(users.user1[key])
+}
+
+*/
+
+
+
+
+</script>
+<a href="http://google.com" onclick="return areYouSure();">Delete</a>
+<!--<form action="http://google.com" method="get" onsubmit="return del()">-->
+<!--    <input type="text" id="sendtext" value="">-->
 <!--    <input type="submit" value="Delete">-->
+<!--</form>-->
+<div id="xxx" style="background-color: yellow">хуй</div>
+<div style="font-size: 16px;" onclick="hideShow('xxx')">Нажми</div>
+<!---->
+<!---->
+<!--<div id="1" style="background-color: yellow ;display: block">хуй1</div>-->
+<!--<div style="font-size: 16px;" onclick="hideShow('1')">Нажми</div>-->
 
 
 
-</body>
+
+
+
+
+
+
+
+
+
 
 
 

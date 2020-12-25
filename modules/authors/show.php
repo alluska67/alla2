@@ -6,7 +6,6 @@ if (isset($_GET['action'],$_GET['author']) && $_GET['action'] == 'show') {
         FROM `authors`
         WHERE `authors_id` = '" . es($_GET['author']) . "'
         LIMIT 1
-
     ");
     $authors = [];
     while ($author_row = $author_res->fetch_assoc()) {

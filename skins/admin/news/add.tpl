@@ -45,7 +45,6 @@
     <input class="add_bottom" type = "submit" name="add" value="Добавить новость">
   </form>
 </div>
-    <?php //wtf($_POST,1);?>
 <?php } else { ?>
 <div>Доступ запрещен! Обратитесь в техподдержку для уточнения деталей блокировки вашего аккаунта</div>
 <?php } ?>

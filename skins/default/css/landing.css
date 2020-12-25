@@ -19,7 +19,7 @@ a , li{
 /*top*/
 header {
   position: absolute;
-  z-index: 44;
+  z-index: 12;
   width: 100%;
   height: 206px;
 }
@@ -412,7 +412,7 @@ h1 {
 .site_content {
   height: 1000px;
   background-image: url("/skins/default/img/man.jpg");
-  background-repeat: round;
+  /*background-repeat: round;*/
 }
 
 .site_content:after {
@@ -751,8 +751,7 @@ p {
 }
 
 .our_team_image ,.our_team_right_part img {
-  width: 350px;
-  height: 400px;
+  width: 265px;
 }
 
 .number {
@@ -1499,4 +1498,58 @@ fileholder
 
 .text_news {
   font-size: 20px;
+}
+.auth_text {
+  float: left;
+  color: #c608c3;
+}
+.auth_text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.authorization_modal{
+  position: relative;
+
+
+}
+.authorization_inside {
+  position: absolute;
+  width: 235px;
+  background-color: white;
+  border: 1px solid #c608c3;
+  border-radius: 10px;
+  float: left;
+  z-index: 999;
+}
+
+/*.auth_button {*/
+/*  background-color: white;*/
+/*  border: 1px solid #c608c3;*/
+/*  border-radius: 10px;*/
+/*  padding: 6px 24px;*/
+/*  cursor: pointer;*/
+/*}*/
+/*.auth_button:hover {*/
+/*  background: #c608c3;*/
+/*}*/
+
+
+/*.background {*/
+/*  background-color: #000000;*/
+/*  position: fixed;*/
+/*  top: 0;*/
+/*  right: 0;*/
+/*  bottom: 0;*/
+/*  left: 0;*/
+/*  display: none;*/
+/*  opacity: 0.5;*/
+/*  z-index: 998;*/
+/*}*/
+
+.non_scroll {
+  overflow: hidden;
+  padding-right: 17px;
+  box-sizing: content-box;
+
 }

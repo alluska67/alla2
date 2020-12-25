@@ -1,7 +1,11 @@
 <?php
+//Core::$JS = '<script type="text/javascript" src="skins/default/js/scripts_v1.js"></script>';
 
+//$uri = $_SERVER['REQUEST_URI'];
+//wtf($uri,1);
+if (isset($_POST['login'], $_POST['password']) && mb_strlen($_POST['password']) >5) {
 
-if (isset($_POST['login'], $_POST['password'])) {
+ //wtf($_POST,1);
     $res = q("
         SELECT *
         FROM `users`
@@ -11,11 +15,17 @@ if (isset($_POST['login'], $_POST['password'])) {
      ");
     $row = $res->fetch_assoc();
 
-    if (password_verify($_POST['password'], $row['password'])) {
-        if ($res->num_rows) {
-            $res->close();
+    if ($res->num_rows) {
+        if (password_verify($_POST['password'], $row['password'])) {
             $_SESSION['user'] = $row;
             $status = 'Ok';
+
+            if(isset($_POST['uri']))  {
+                //wtf($_POST['uri']);
+                header('Location: '.$_POST['uri']);
+                exit();
+            }
+
             if (isset($_POST['autoauth'])) {
                 $hash = myHash($_SESSION['user']['id'] . $_SESSION['user']['login'] . $_SESSION['user']['email']);
                 $res = q(
@@ -44,11 +54,16 @@ if (isset($_POST['login'], $_POST['password'])) {
                 $_SESSION['user'] = $row;
             }
         } else {
-            $errors = 'Нет пользователя с таким логином или паролем';
+            $errors = 'Пароли не совпадают либо вас забанили.';
+            header('Location: /cab/authorization');
+            exit();
         }
     } else {
-        $errors = 'Пароли не совпадают либо вас забанили.';
+        $errors = 'Нет пользователя с таким логином или паролем';
     }
+
+} else {
+    $errors = 'Вы допустили ошибку при введении данных. Попробуйте ещё раз';
 
 }
 

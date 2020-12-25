@@ -25,7 +25,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title text-info"><?=htmlspecialchars($book['title']); ?></h5>
-                    <a href="/admin/books/show?action=show&book=<?=$book['id'];?>" class="btn btn-info" >Перейти к книге</a>
+                    <a href="/books/show?action=show&book=<?=$book['id'];?>" class="btn btn-info" >Перейти к книге</a>
                       <?php if(empty($book['image'])) { ?>
                         <span><img src="/uploaded/no_image.png" alt="" class="no_image card text-center"></span>
                       <?php } else { ?>
@@ -36,7 +36,7 @@
               <?php }?>
             </div>
         </div>
-        <p  style="margin-top: 14px;"><a href="/admin/authors" class="p-2 mb-2 bg-secondary text-white">Вернуться к авторам</a></p>
+        <p  style="margin-top: 14px;"><a href="/authors" class="p-2 mb-2 bg-secondary text-white">Вернуться к авторам</a></p>
       </div>
     <?php } ?>
 </div>

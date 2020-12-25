@@ -9,7 +9,6 @@ class Upload
     static $path_origin;
     static $name_resized;
 
-
     static function uploadImage($file, $path) {
 
         $image_type = ['image/gif','image/jpeg','image/png','image/bmp'];
@@ -38,7 +37,7 @@ class Upload
                     } elseif (!move_uploaded_file($file['tmp_name'],'.'. $path_origin)) {
                         $error = 'Наше изображение не загружено';
                     } elseif (empty($error))  {
-                        $status = 'Наше изображение загружено';
+                        $status = 'Всё прошло успешно';
                     }
                 } else {
                     $error = 'Данный файл не является изображением';
@@ -93,8 +92,6 @@ class Upload
 
         $img = $img_create('.'. $path_origin);
 
-
-
         $ratio_orig = $width_orig/$height_orig;
 
         if ($newWidth/$newHeight > $ratio_orig) {
@@ -102,15 +99,6 @@ class Upload
         } else {
             $newHeight = $newWidth/$ratio_orig;
         }
-
-//        if ($width > $height) {
-//            $newWidth = $max_size_avatar;
-//            $newHeight = $max_size_avatar / $width * $height;
-//
-//        } else {
-//            $newWidth = $max_size_avatar / $height * $width;
-//            $newHeight = $max_size_avatar;
-//        }
 
         $tmp = imagecreatetruecolor($newWidth, $newHeight);
         $color = imagecolorallocate($tmp, 255, 255, 255);

@@ -13,26 +13,24 @@
           </div>
         </div>
     </div>
-    <div>
-      Имя автора *:
-      <input class="news_table" type="text" name="name" value="<?=htmlspecialchars($_POST['name'] ?? " "); ?>">
+    <div class="row mx-md-n2">
+      <p class="col-2">Имя автора *:</p>
+      <div class="col-2"><input class="news_table" type="text" name="name" value="<?=htmlspecialchars($_POST['name'] ?? " "); ?>"></div>
       <?=($errors ['name'] ?? " ");?>
     </div>
-    <div>
-      Краткая биография *:
-      <textarea class="news_table" name="biography" id="" cols="30" rows="10"><?=htmlspecialchars($_POST['biography'] ?? " "); ?></textarea>
-      <?=($errors ['biography'] ?? " "); ?>
+    <div class="row mx-md-n2">
+      <p class="col-2">Краткая биография *:</p>
+      <div class="col-2"><textarea class="news_table" name="biography" id="" cols="30" rows="10"><?=htmlspecialchars($_POST['biography'] ?? " "); ?></textarea></div>
+      <?=($errors ['biography'] ?? " ");?>
     </div>
-    <div>
-      Годы жизни *:
-      <input class="news_table" name="years_of_life" value="<?=htmlspecialchars($_POST['years_of_life'] ?? " "); ?>">
-      <?=($errors ['years_of_life'] ?? " "); ?>
+    <div class="row mx-md-n2">
+      <p class="col-2">Год рождения *:</p>
+      <div class="col-2">      <input class="news_table" name="years" value="<?=(int)$_POST['years'] ?? " " ?>"></div>
+      <?=($errors ['years'] ?? " ");?>
     </div>
-
     <input class="add_bottom" type = "submit" name="add" value="Добавить автора">
   </form>
 </div>
-    <?php //wtf($_POST,1);?>
 <?php } else { ?>
 <div>Доступ запрещен! Обратитесь в техподдержку для уточнения деталей блокировки вашего аккаунта</div>
 <?php } ?>

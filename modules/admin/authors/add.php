@@ -1,7 +1,8 @@
 <?php
-//wtf($_POST);
-if (isset($_POST['name'],$_POST['biography'], $_POST['years_of_life'],$_FILES['file'], $_POST['add'])) {
-//wtf($_POST);
+
+
+if (isset($_POST['name'],$_POST['biography'], $_POST['years'],$_FILES['file'], $_POST['add'])) {
+
     $errors = [];
 
     if (empty($_POST['name'])) {
@@ -10,8 +11,8 @@ if (isset($_POST['name'],$_POST['biography'], $_POST['years_of_life'],$_FILES['f
     if (empty($_POST['biography'])) {
         $errors ['biography'] = 'Вы не написали краткую биографию';
     }
-    if (empty($_POST['years_of_life'])) {
-        $errors ['years_of_life'] = 'Вы не указали годы жизни автора';
+    if (empty($_POST['years'])) {
+        $errors ['years'] = 'Вы не указали годы жизни автора';
     }
     if ($_FILES['file']['error'] == 4 ) {
         $errors ['files'] = 'Загрузите фото автора';
@@ -19,21 +20,28 @@ if (isset($_POST['name'],$_POST['biography'], $_POST['years_of_life'],$_FILES['f
 
 
     if (!count($errors)) {
-
+        $check = q("
+            SELECT *
+            FROM `authors`
+            WHERE `name`          = '" . es($_POST['name']) . "'
+              AND `years` = " . (int)$_POST['years'] . "
+        ");
+        if ($check->num_rows) {
+            $errors['name'] = 'Такой автор уже существует!';
+        }
+    }
+    if (!count($errors)) {
 
         //удаление лишних пробелов
         $_POST = trimAll($_POST);
 
         q("
             INSERT INTO `authors` SET
-            `name`        = '" . es($_POST['name']) . "',
-            `biography`  = '" . es($_POST['biography']) . "',
-            `years_of_life`  = '" . es($_POST['years_of_life']) . "'
+            `name`           = '" . es($_POST['name']) . "',
+            `biography`      = '" . es($_POST['biography']) . "',
+            `years`  = " . (int)$_POST['years'] . "
         ");
         $authors_id = DB::_()->insert_id;
-       // wtf($authors_id);
-
-
 
         if(isset($_FILES['file']) && $_FILES['file']['error'] != 4) {
 
@@ -51,8 +59,8 @@ if (isset($_POST['name'],$_POST['biography'], $_POST['years_of_life'],$_FILES['f
 
             $res = q("
                 UPDATE `authors` SET           
-                `img`          = '".es(Upload::$name_resized)."'
-                WHERE `authors_id`     = ".(int)$authors_id."
+                `img`               = '".es(Upload::$name_resized)."'
+                WHERE `authors_id`  = ".(int)$authors_id."
             ");
             $_SESSION['info'] = Upload::$info['status'];
             header('Location: /admin/authors');

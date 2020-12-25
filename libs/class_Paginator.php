@@ -4,7 +4,7 @@
 class Paginator
 {
     static $page_count;
-    static $num= 10;
+    static $num = 10;
     static $current_page = 1;
     static $nav = 5;
     static $category;
@@ -15,12 +15,13 @@ class Paginator
     }
 
     public static function q($query) {
-        $limit_start = (self::$current_page - 1) * self::$num;
+        $limit_start = ((int)self::$current_page - 1) * self::$num;
 
-        if ($limit_start < 0) {
+        if ($limit_start < 0 ) {
             $limit_start = 1;
         }
-        $limit_end = (int)self::$num;
+
+        $limit_end = self::$num;
 
         $query_main = $query . 'LIMIT ' . (int)$limit_start . ' , ' . (int)$limit_end;
         return q($query_main);
@@ -44,12 +45,12 @@ class Paginator
     }
 
     public static function nav(string $uri) {
-        $start = self::$current_page - self::$nav;
-        $end = self::$current_page + self::$nav;
+        $start = (int)self::$current_page - self::$nav;
+        $end = (int)self::$current_page + self::$nav;
         $result = '<ul class="pagination justify-content-center">';
 
         if (self::$current_page > 1) {
-            $show = self::$current_page - 1;
+            $show = (int)self::$current_page - 1;
             $text = 'Назад';
             $result .= self::createLink($uri,$show,$text);
         }
@@ -73,7 +74,7 @@ class Paginator
         }
 
         if (self::$current_page  < $end) {
-            $show1 = self::$current_page + 1;
+            $show1 = (int)self::$current_page + 1;
             $text1 = 'Вперёд';
             $result .= self::createLink($uri,$show1,$text1);
         }

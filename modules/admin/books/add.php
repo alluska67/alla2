@@ -1,7 +1,17 @@
 <?php
-//wtf($_POST);
+
+$choose_author = [];
+$author_category = q("
+    SELECT *
+    FROM `authors` 
+");
+
+while ($row_choose_author = $author_category->fetch_assoc()){
+    $choose_author[$row_choose_author['authors_id']] = $row_choose_author['name'];
+}
+
 if (isset($_POST['title'],$_POST['description'], $_POST['pages'],$_FILES['file'],$_POST['author'],  $_POST['add'])) {
-//wtf($_POST);
+
     $errors = [];
 
     if (empty($_POST['title'])) {
@@ -29,39 +39,24 @@ if (isset($_POST['title'],$_POST['description'], $_POST['pages'],$_FILES['file']
         $_POST = trimAll($_POST);
 
         q("
-        INSERT INTO `books` SET
-        `title`        = '" . es($_POST['title']) . "',
-        `description`  = '" . es($_POST['description']) . "',
-        `pages`        = " .(int)$_POST['pages'] . ",
-        `price`        = " .(float)$_POST['price'] . ",
-        `date`         = NOW()
-        "
-        );
+            INSERT INTO `books` SET
+            `title`        = '" . es($_POST['title']) . "',
+            `description`  = '" . es($_POST['description']) . "',
+            `pages`        = " .(int)$_POST['pages'] . ",
+            `price`        = " .(float)$_POST['price'] . ",
+            `date`         = NOW()
+        ");
         $books_id = DB::_()->insert_id;
 
-        $res_author = q("
-            SELECT  `authors_id`
-            FROM `authors`
-            WHERE `name` = '" . es($_POST['author']) ."'
-            LIMIT 1
-        ");
-
-        if (!$res_author->num_rows) {
-            q("
-                INSERT INTO `authors` SET
-                `name`        = '" . es($_POST['author']) . "'
-                ");
-            $authors_id = DB::_()->insert_id;
-        } else {
-            $row_authors_id = $res_author->fetch_assoc();
-            $authors_id = $row_authors_id['authors_id'];
+        if($_POST['author'] != '') {
+            foreach ($_POST['author'] as $authors_id) {
+                q("
+                INSERT INTO `authors_books` SET
+                `books_id`        = " . (int)$books_id . ",
+                `authors_id`      = " . (int)$authors_id . "
+            ");
+            }
         }
-
-        q("
-         INSERT INTO `authors_books` SET
-        `books_id`        = " . (int)$books_id . ",
-        `authors_id`        = " .(int)$authors_id . "
-        ");
 
         if(isset($_FILES['file']) && $_FILES['file']['error'] != 4) {
 

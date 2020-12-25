@@ -3,7 +3,7 @@
     <h3><?=$info ?? ''; ?></h3>
   <form action="" method="get" class="select_form">
     <select name="news_category"  class="custom-select col-md-4">
-      <option selected disabled>Категория новости</option>
+      <option selected disabled value="">Категория новости</option>
         <?php while ($category = $news_category->fetch_assoc()) { ?>
           <?php if (isset($_GET['news_category']) && $category['id_cat'] == $_GET['news_category']) { ?>
             <option selected value="<?=$category['id_cat']?>"><?=$category['title_cat']?></option>
@@ -13,8 +13,9 @@
         <?php } ?>
     </select>
     <input type="submit" class="btn btn-outline-primary" name="submit" value='search'>
+    <button type="button" class="btn btn-info float-right"><a href="?refresh=1">Обновить все новости</a></button>
   </form>
-    <h2 class="p-1 mb-2 bg-info text-white  h2_right_news" >Всего новостей : <?=$news->num_rows;?></h2>
+    <h2 class="p-1 mb-2 text-info  h2_right_news" >Всего новостей : <?=$news->num_rows;?></h2>
     <?php while ($row = $news->fetch_assoc()){ ?>
       <div class="card mb-12 border border-secondary news_content">
         <div class="row no-gutters">

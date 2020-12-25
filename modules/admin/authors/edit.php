@@ -3,7 +3,7 @@
 if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete_img') {
     q("
         UPDATE `authors` SET
-          `img` = ''
+        `img` = ''
         WHERE `authors_id` = " . (int)$_GET['id'] . "
     ");
 
@@ -12,7 +12,7 @@ if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete_img') {
     exit();
 }
 
-if (isset($_POST['name'],$_POST['biography'], $_POST['years_of_life'], $_POST['edit'])) {
+if (isset($_POST['name'],$_POST['biography'], $_POST['years'], $_POST['edit'])) {
 
     $errors = [];
 
@@ -22,19 +22,19 @@ if (isset($_POST['name'],$_POST['biography'], $_POST['years_of_life'], $_POST['e
     if (empty($_POST['biography'])) {
         $errors ['biography'] = 'Вы не написали краткую биографию';
     }
-    if (empty($_POST['years_of_life'])) {
-        $errors ['years_of_life'] = 'Вы не указали годы жизни автора';
+    if (empty($_POST['years'])) {
+        $errors ['years'] = 'Вы не указали годы жизни автора';
     }
 
     if(!count($errors)) {
-        //удаление лишних пробелов
+
         $_POST = trimAll($_POST);
 
         q("
             UPDATE `authors` SET
-            `name`        = '" . es($_POST['name']) . "',
-            `biography`  = '" . es($_POST['biography']) . "',
-            `years_of_life`  = '" . es($_POST['years_of_life']) . "'
+            `name`             = '" . es($_POST['name']) . "',
+            `biography`        = '" . es($_POST['biography']) . "',
+            `years`    = " . (int)$_POST['years'] . "
             WHERE `authors_id` = " . (int)$_GET['id'] . "
         ");
 
@@ -75,9 +75,9 @@ if (isset($_POST['name'],$_POST['biography'], $_POST['years_of_life'], $_POST['e
                 $_SESSION['info'] = 'Загрузите обложку книги';
             } else {
                 $res = q("
-                UPDATE `authors` SET
-                `img` = '" . es($row['img']) . "'
-                WHERE `authors_id` = " . (int)$_GET['id'] . "
+                    UPDATE `authors` SET
+                    `img` = '" . es($row['img']) . "'
+                    WHERE `authors_id` = " . (int)$_GET['id'] . "
                 ");
                 $_SESSION['info'] = Upload::$info['status'];
                 header('Location: /admin/authors');
@@ -110,8 +110,8 @@ if (isset($_POST['name'])) {
 if (isset($_POST['biography'])) {
     $authors_row['biography'] = $_POST['biography'];
 }
-if (isset($_POST['years_of_life'])) {
-    $authors_row['years_of_life'] = $_POST['years_of_life'];
+if (isset($_POST['years'])) {
+    $authors_row['years'] = $_POST['years'];
 }
 
 

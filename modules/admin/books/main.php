@@ -6,7 +6,6 @@ if (isset($_POST['delete'], $_POST['ids'])) {
     foreach ($_POST['ids'] as $k => $v) {
         $_POST['ids'][$k] = (int)$v;
     }
-
     $ids = implode(',', $_POST['ids']);
 
     q("
@@ -44,7 +43,7 @@ if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete') {
 if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete_img') {
     q("
         UPDATE `books` SET
-          `img` = ''
+        `img` = ''
         WHERE `books_id` = " . (int)$_GET['id'] . "
     ");
 
@@ -81,7 +80,7 @@ while ($book_row = $books_res->fetch_assoc()) {
         $res_author_name = q("
             SELECT *
             FROM `authors`
-            WHERE `authors_id` = '" . (int)$author_row['authors_id'] . "'
+            WHERE `authors_id` = " . (int)$author_row['authors_id'] . "
         ");
 
         while ($row_author_name = $res_author_name->fetch_assoc()) {
@@ -95,7 +94,7 @@ while ($book_row = $books_res->fetch_assoc()) {
 
 
 
-Paginator::count($query_count);//3
+Paginator::count($query_count);
 //создание пути для пагинации
 $uri = $_SERVER['REQUEST_URI'];
 $uri = (explode('?',$_SERVER['REQUEST_URI']))[1] ?? '' ;
@@ -106,75 +105,3 @@ if (isset($_SESSION['info'])) {
     $info = $_SESSION['info'];
     unset($_SESSION['info']);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//$page = $_GET['show_page'] ?? 1;
-//$start = $page - 5;
-//$end = $page +5;
-//
-//if ($page > 1) {
-//    $page = $page - 1;
-//    echo '<a href = "?show_page=' . $page . '">' . 'Назад' . '</a>';
-//
-//}
-//for ($i = $start; $i <= $end; ++$i) {
-//    //wtf($start,1);
-//    if ($i <= 0) {
-//        continue;
-//    }
-//    if ($i >= Paginator::$page_count) {
-//        break;
-//    }
-//
-//    echo '<a href = "?show_page=' . $i . '">' . $i . '</a>';
-//}
-//$page = $_GET['show_page'] ?? 1;
-//if ($page  < (Paginator::$page_count - 1)) {
-//    $page = $page + 1;
-//    echo '<a href = "?show_page=' . $page . '">' . 'Вперед' . '</a>';
-//}
-
-
-
-//wtf($news);
-//wtf($news->num_rows );
-
-//for ($i = $page; $i <= Paginator::$page_count; $i++) {
-//   echo Paginator::nav($nav,$page);
-//}
-//echo Paginator::nav($nav,$page);
-//echo Paginator::nav($nav,$page);
-//while ($row = $news->fetch_assoc()){
-//    //wtf($news->num_rows,1);
-//    echo Paginator::nav($nav,$page);
-//}
-
-//$row = $res->fetch_assoc();
-//
-//echo Paginator::prevNav();
-//
-//for ($i = 1; $i <= $page_count; $i++) {
-//    echo Paginator::navPrint($i,$i,1);
-//}
-//
-//echo Paginator::nextNav($page_count);
-//
-//

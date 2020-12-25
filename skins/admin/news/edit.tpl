@@ -1,3 +1,4 @@
+<?php if(isset($_SESSION['user']) && $_SESSION['user']['access'] != 5) { ?>
 <div class="all_news_inside">
   <form action="" method="post" enctype="multipart/form-data">
     <div>
@@ -28,7 +29,7 @@
     <div>
       Категория новости *:
         <select class="border_thin" name="category">
-          <option value="<?=htmlspecialchars($row['id_cat'])?>" ><?=htmlspecialchars($row['title_cat']); ?></option>
+          <option value="<?=htmlspecialchars($row['id_cat'])?>"><?=htmlspecialchars($row['title_cat']); ?></option>
             <?php while ($category = $news_category->fetch_assoc()) { ?>
               <?php if($category['title_cat'] == $row['title_cat']) { continue; } ?>
               <option value="<?= (int)$category['id_cat']?>"><?= htmlspecialchars($category['title_cat'])?></option>
@@ -55,4 +56,6 @@
     <input class="add_bottom" type="submit" name="edit" value="Отредактировать новость">
   </form>
 </div>
-
+<?php } else { ?>
+    Доступ запрещен! Обратитесь в техподдержку для уточнения деталей блокировки вашего аккаунта
+<?php }?>

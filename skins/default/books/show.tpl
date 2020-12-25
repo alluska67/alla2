@@ -14,9 +14,9 @@
             </div>
             <div class="col-md-9">
               <div class="card-body">
-                <p class="card-text p-1 mb-1 text-dark"><?=htmlspecialchars($book['description']) ;?> </p>
-                <p class="card-text"><?=(int)($book['pages']); ?> страниц</p>
-                <p class="card-text text-danger">Цена: <?=(int)($book['price']); ?> грн</p>
+                  <p class="card-text p-1 mb-1 text-dark"><?=htmlspecialchars($book['description']) ;?> </p>
+                  <p class="card-text"><?=(int)($book['pages']); ?> страниц</p>
+                  <p class="card-text text-danger">Цена: <?=(int)($book['price']); ?> грн</p>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title text-info"><?=htmlspecialchars($author['name']); ?></h5>
-                    <a href="/admin/authors/show?action=show&author=<?=$author['id'];?>" class="btn btn-info" >Перейти к автору</a>
+                    <a href="/authors/show?action=show&author=<?=$author['id'];?>" class="btn btn-info" >Перейти к автору</a>
                     <?php if(empty($author['image'])) { ?>
                       <span><img src="/uploaded/no_image.png" alt="" class="no_image"></span>
                     <?php } else { ?>
@@ -36,7 +36,7 @@
                 </div>
               <?php }?>
             </div>
-            <p  style="margin-top: 14px;"><a href="/admin/books" class="p-2 mb-2 bg-secondary text-white">Вернуться ко всем книгам</a></p>
+            <p  style="margin-top: 14px;"><a href="/books" class="p-2 mb-2 bg-secondary text-white">Вернуться ко всем книгам</a></p>
           </div>
         </div>
     <?php } ?>

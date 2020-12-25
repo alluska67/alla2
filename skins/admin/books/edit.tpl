@@ -18,36 +18,40 @@
              <label class="custom-file-label" for="inputGroupFile01">Выберите изображение</label>
           </div>
         </div>
-
     </div>
-      <?=($errors['files'] ?? " " ); ?>
-    <div>
-      Название книги *:
-      <input class="news_table" type="text" name="title" value="<?=htmlspecialchars($book['title'] ?? " "); ?>">
+    <?=($errors['files'] ?? " " ); ?>
+    <div class="row mx-md-n2">
+      <p class="col-2">Название книги *:</p>
+      <div class="col-2"><input class="news_table" type="text" name="title" value="<?=htmlspecialchars($book['title'] ?? " "); ?>"></div>
       <?=($errors ['title'] ?? " ");?>
     </div>
-    <div>
-      Описание книги *:
-      <textarea class="news_table" name="description" id="" cols="30" rows="10"><?=htmlspecialchars($book['description'] ?? " "); ?></textarea>
+    <div class="row mx-md-n2">
+      <p class="col-2">Описание книги *:</p>
+      <div class="col-2"><textarea class="news_table" name="description" id="" cols="30" rows="10"><?=htmlspecialchars($book['description'] ?? " "); ?></textarea></div>
       <?=($errors ['description'] ?? " "); ?>
     </div>
-    <div>
-      Кол-во страниц *:
-      <input class="news_table" name="pages" value="<?=(int)($book['pages'] ?? " "); ?>">
+    <div class="row mx-md-n2">
+      <p class="col-2">Кол-во страниц *:</p>
+      <div class="col-2"><input class="news_table" type="number" name="pages" value="<?=(int)($book['pages'] ?? " "); ?>"></div>
       <?=($errors ['pages'] ?? " "); ?>
     </div>
-    <div>
-      Стоимость *:
-      <input class="news_table" name="price" value="<?=(float)($book['price'] ?? " " );?>">
+    <div class="row mx-md-n2">
+      <p class="col-2">Стоимость *:</p>
+      <div class="col-2"><input class="news_table" type="number" name="price" value="<?=(float)($book['price'] ?? " " );?>"></div>
       <?=($errors ['price'] ?? " "); ?>
     </div>
-    <div>
-      Автор *:
-      <input class="news_table" type="text" name="author" value="<?=htmlspecialchars($author ?? " "); ?>">
-      <?=($errors ['author'] ?? " ");?>
+    <div class="row mx-md-n2">
+      <p class="col-2">Автор *:</p>
+      <select multiple name="author[]" class="news_table">
+        <?php foreach ($book['author'] as $author) {;?>
+        <option value="<?=htmlspecialchars($author['id'])?>" selected><?=htmlspecialchars($author['name']); ?></option>
+          <?php foreach ($choose_author as $author_name['authors_id'] =>$author_name['name']) { //wtf($choose_author);?>
+            <?php if($author_name['authors_id'] == htmlspecialchars($author['id'])) { continue; } ?>
+              <option value="<?=(int)$author_name['authors_id']?>"><?=htmlspecialchars($author_name['name']);?></option>
+          <?php } ?>
+        <?php } ?>
+      </select>
     </div>
-
     <input class="add_bottom" type="submit" name="edit" value="Отредактировать новость">
   </form>
 </div>
-

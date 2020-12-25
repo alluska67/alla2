@@ -4,7 +4,7 @@
     <a class="btn btn-success" href="/admin/news/add">Добавить новость</a>
       <form action="" method="get " class="select_form">
         <select name="news_category"  class="custom-select col-md-4">
-          <option selected disabled>Категория новости</option>
+          <option selected disabled >Все новости</option>
             <?php while ($category = $news_category->fetch_assoc()) { ?>
               <?php if (isset($_GET['news_category']) && $category['id_cat'] == $_GET['news_category']) { ?>
                 <option selected value="<?=$category['id_cat']?>" name="news_category"><?=$category['title_cat']?></option>
@@ -14,7 +14,9 @@
             <?php } ?>
         </select>
         <input type="submit" class="btn btn-outline-primary" name="submit" value='search'>
+        <button type="button" class="btn btn-info float-right"><a href="?refresh=1">Обновить все новости</a></button>
       </form>
+      <form action="" method="post">
         <h2 class="text-primary border  h2_right_news" >Всего новостей : <?=$count = $news->num_rows;?></h2>
         <?php while ($row = $news->fetch_assoc()){ ?>
           <div class="card mb-12 border border-secondary news_content">
@@ -53,6 +55,7 @@
         <div class="delete_all">
           <input class="btn btn-outline-danger delete_bottom_news" type="submit" name="delete" value="Delete all">
         </div>
+      </form>
       <nav aria-label="Page navigation example">
         <?=Paginator::nav($uri);?>
       </nav>

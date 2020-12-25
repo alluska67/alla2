@@ -13,5 +13,14 @@
   </div>
 </div>
 
+<?php //wtf($_SERVER['REQUEST_URI'])
+    if($_SERVER['REQUEST_URI'] = '/cab/authorization') {
+        echo 'Да';
+    } else{
+        echo 'no!';
+    }
 
+
+
+;?>
 

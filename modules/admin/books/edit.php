@@ -1,9 +1,19 @@
 <?php
 
+$choose_author = [];
+$author_category = q("
+    SELECT *
+    FROM `authors` 
+");
+
+while ($row_choose_author = $author_category->fetch_assoc()){
+    $choose_author[$row_choose_author['authors_id']] = $row_choose_author['name'];
+}
+
 if (isset($_GET['action'],$_GET['id']) && $_GET['action'] == 'delete_img') {
     q("
         UPDATE `books` SET
-          `img` = ''
+        `img` = ''
         WHERE `books_id` = " . (int)$_GET['id'] . "
     ");
 
@@ -37,40 +47,28 @@ if (isset($_POST['title'],$_POST['description'], $_POST['pages'],$_POST['author'
         $_POST = trimAll($_POST);
 
         q("
-        UPDATE `books` SET
-        `title`        = '" . es($_POST['title']) . "',
-        `description`  = '" . es($_POST['description']) . "',
-        `pages`        = " .(int)$_POST['pages'] . ",
-        `price`        = " .(float)$_POST['price'] . ",
-        `date_edited`         = NOW()
-        WHERE `books_id` = " . (int)$_GET['id'] . "
+            UPDATE `books` SET
+            `title`          = '" . es($_POST['title']) . "',
+            `description`    = '" . es($_POST['description']) . "',
+            `pages`          = " .(int)$_POST['pages'] . ",
+            `price`          = " .(float)$_POST['price'] . ",
+            `date_edited`    = NOW()
+            WHERE `books_id` = " . (int)$_GET['id'] . "
         ");
 
-        $res_author = q("
-            SELECT  `authors_id`
-            FROM `authors`
-            WHERE `name` = '" . es($_POST['author']) ."'
-            LIMIT 1
-        ");
-
-        if (!$res_author->num_rows) {
-            q("
-                INSERT INTO  `authors` SET
-                `name`        = '" . es($_POST['author']) . "'
-                ");
-            $authors_id = DB::_()->insert_id;
-
-        } else {
-            $row_authors_id = $res_author->fetch_assoc();
-            $authors_id = $row_authors_id['authors_id'];
-        }
-
-        q("
-            UPDATE `authors_books` SET
-            `books_id`        = " . (int)$_GET['id'] . ",
-            `authors_id`      = " .(int)$authors_id . "
+        $res_book = q("
+            DELETE 
+            FROM `authors_books`
             WHERE `books_id`  = " . (int)$_GET['id'] . "
         ");
+
+        foreach ($_POST['author'] as $authors_id) {
+            q("
+                INSERT INTO `authors_books` SET
+                `books_id`        = " . (int)$_GET['id'] . ",
+                `authors_id`      = " . (int)$authors_id . "
+            ");
+        }
 
         if(isset($_FILES['file']) && $_FILES['file']['error'] != 4) {
 
@@ -88,8 +86,8 @@ if (isset($_POST['title'],$_POST['description'], $_POST['pages'],$_POST['author'
 
             $res = q("
                 UPDATE `books` SET           
-                `img`          = '".es(Upload::$name_resized)."'
-                WHERE `books_id`     = ".(int)$_GET['id']."
+                `img`          = '" . es(Upload::$name_resized) . "'
+                WHERE `books_id`     = " . (int)$_GET['id'] . "
             ");
             $_SESSION['info'] = Upload::$info['status'];
             header('Location: /admin/books');
@@ -109,9 +107,9 @@ if (isset($_POST['title'],$_POST['description'], $_POST['pages'],$_POST['author'
                 $_SESSION['info'] = 'Загрузите обложку книги';
             } else {
                 $res = q("
-                UPDATE `books` SET
-                `img` = '" . es($row['img']) . "'
-                WHERE `books_id` = " . (int)$_GET['id'] . "
+                    UPDATE `books` SET
+                    `img` = '" . es($row['img']) . "'
+                    WHERE `books_id` = " . (int)$_GET['id'] . "
                 ");
                 $_SESSION['info'] = Upload::$info['status'];
                 header('Location: /admin/books');
@@ -122,53 +120,44 @@ if (isset($_POST['title'],$_POST['description'], $_POST['pages'],$_POST['author'
     }
 }
 
-$books_res = q( "
+$book_res = q( "
     SELECT *
     FROM `books` 
     WHERE `books_id` = " . (int)$_GET['id'] . "
     LIMIT 1
 ");
 
-if (!$books_res->num_rows) {
+if (!$book = $book_res->fetch_assoc()) {
     $_SESSION['info'] = 'Запись отсутствует';
     header('Location: /admin/books');
     exit();
-}
-
-$books = [];
-while ($book_row = $books_res->fetch_assoc()) {
-
+} else {
     $authors_res = q("
         SELECT *
         FROM `authors_books`
-        WHERE `books_id` = " . (int)$book_row['books_id'] . "
+        WHERE `books_id` = " . (int)$book['books_id'] . "
+    ");
+}
+
+$authors_name = [];
+while ($author_row = $authors_res->fetch_assoc()) {
+
+    $res_author_name = q("
+        SELECT *
+        FROM `authors`
+        WHERE `authors_id` = '" . (int)$author_row['authors_id'] . "'
     ");
 
-    $authors_name = [];
-    while ($author_row = $authors_res->fetch_assoc()) {
-
-        $res_author_name = q("
-            SELECT *
-            FROM `authors`
-            WHERE `authors_id` = '" . (int)$author_row['authors_id'] . "'
-        ");
-
-        while ($row_author_name = $res_author_name->fetch_assoc()) {
-            $authors_name[$row_author_name['authors_id']] = $row_author_name['name'];
-        }
-    }
-
-    $book_row['author'] = $authors_name;
-    $books[] = $book_row;
-}
-
-foreach ($books as $k => $book) {
-    $k = $book;
-    foreach ($book['author'] as $k => $author) {
-        $k = $author;
-
+    while ($row_author_name = $res_author_name->fetch_assoc()) {
+        $authors_name[$row_author_name['authors_id']] = [
+            'id' => $row_author_name['authors_id'],
+            'name' => $row_author_name['name']
+            ];
     }
 }
+
+$book['author'] = $authors_name;
+
 
 if (isset($_POST['title'])) {
     $book['title'] = $_POST['title'];
@@ -179,7 +168,6 @@ if (isset($_POST['description'])) {
 if (isset($_POST['pages'])) {
     $book['pages'] = $_POST['pages'];
 }
-
 if (isset($_POST['author'])) {
     $book['author'] = $_POST['author'];
 }
