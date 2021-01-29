@@ -1,34 +1,33 @@
 <?php
-//Запрос на получение данных по комментариям на вывод
-$result = q("SELECT * FROM `comments` ORDER BY `id`" );
-//Если существуют выбранные записи - то выводим -> tpl
 
-//Обработка комментариев
-if (isset($_POST['name'], $_POST['comment'], $_POST['email'])) {
-    $errors = [];
-    if (empty($_POST['name'])) {
-        $errors ['name'] = 'Вы не указали ваше Имя';
-    }
-    if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $errors ['email'] = 'Вы не заполнили Email';
-    }
-    if (empty($_POST['comment'])) {
-        $errors ['comment'] = 'Вы не написали ваш комментарий';
-    }
+$date = date("Y-m-d H:i:s");
 
-    //не содержит элементов в массиве
-    if(!count($errors)) {
-        q("
-        INSERT INTO `comments` SET
-        `name` = '".es($_POST['name'])."',
-        `email`= '".es($_POST['email'])."',
-        `text` = '".es($_POST['comment'])."'
-        ");
 
-        $_SESSION['commentok'] = 'OK';
-        header("Location: /comments/main");
-        exit();
-    }
-}
+Paginator::$current_page = $_GET['show_page'] ?? 1;
+
+$query_count = q("
+    SELECT COUNT(*) AS `cnt`
+    FROM `comments`
+");
+$res = q("
+    SELECT *
+    FROM main.`comments`
+    ORDER BY `date` DESC
+    Limit 1
+
+");
+
+$result = Paginator::q("
+    SELECT *
+    FROM `comments`
+    ORDER BY `date` DESC
+");
+
+Paginator::count($query_count);
+
+$uri = $_SERVER['REQUEST_URI'];
+$uri = (explode('?',$_SERVER['REQUEST_URI']))[1] ?? '' ;
+$uri = preg_replace('#show_page=\d#Ui','',$uri);
+$uri = trim($uri,'&');
 
 

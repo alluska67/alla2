@@ -1368,13 +1368,19 @@ fileholder
   font-style: italic;
 }
 
-.comments_text ,.add_comment,.border_goods ,.border_thin ,.border_fat ,.add_goods_bottom ,.preview ,.delete_goods_bottom,.cab_table,.news_table{
+.add_comment,.border_goods ,.border_thin ,.border_fat ,.add_goods_bottom ,.preview ,.delete_goods_bottom,.cab_table,.news_table{
   border: 0.2mm solid #c608c3;
   border-radius: 10px;
   padding: 10px;
   outline:none;
 }
 
+.top_name_date {
+  border: 2px solid #c608c3;
+  border-radius: 10px;
+  padding: 10px;
+  outline:none;
+}
 .border_goods ,.border_fat {
   width: 400px;
   height: 20px;
@@ -1508,48 +1514,72 @@ fileholder
   text-decoration: underline;
 }
 
-.authorization_modal{
+.authorization_modal {
   position: relative;
-
-
 }
+
 .authorization_inside {
   position: absolute;
-  width: 235px;
+  top: 8px;
   background-color: white;
   border: 1px solid #c608c3;
   border-radius: 10px;
   float: left;
   z-index: 999;
 }
-
-/*.auth_button {*/
-/*  background-color: white;*/
-/*  border: 1px solid #c608c3;*/
-/*  border-radius: 10px;*/
-/*  padding: 6px 24px;*/
-/*  cursor: pointer;*/
-/*}*/
-/*.auth_button:hover {*/
-/*  background: #c608c3;*/
-/*}*/
-
-
-/*.background {*/
-/*  background-color: #000000;*/
-/*  position: fixed;*/
-/*  top: 0;*/
-/*  right: 0;*/
-/*  bottom: 0;*/
-/*  left: 0;*/
-/*  display: none;*/
-/*  opacity: 0.5;*/
-/*  z-index: 998;*/
-/*}*/
-
-.non_scroll {
-  overflow: hidden;
-  padding-right: 17px;
-  box-sizing: content-box;
-
+.auth_form {
+  padding: 17px;
 }
+
+.form_text {
+  padding-left: 4px;
+}
+
+#ajax {
+  background-color: #fff;
+  background-image: url("/skins/default/img/Loading.gif");
+  background-position: center top ;
+  background-repeat: no-repeat;
+  border: 1px solid #c608c3;
+  border-radius: 10px;
+  display: none;
+  left: 50%;
+  padding: 56px 10px 10px;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  width: 100px;
+  vertical-align: bottom;
+  z-index: 1200;
+}
+
+#ajax span {
+  font-size: 1.3em;
+  color: green;
+}
+
+
+#ajax {
+  background-color: #fff;
+  background-image: url("/skins/default/img/Loading.gif");
+  background-position: center top ;
+  background-repeat: no-repeat;
+  border: 1px solid #c608c3;
+  border-radius: 10px;
+  display: none;
+  left: 50%;
+  padding: 56px 10px 10px;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  width: 100px;
+  vertical-align: bottom;
+  z-index: 1200;
+}
+
+#ajax span {
+  font-size: 1.3em;
+  color: green;
+}
+
+

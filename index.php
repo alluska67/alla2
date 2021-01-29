@@ -30,6 +30,12 @@ include_once './variables.php';
 
 ob_start();
     include './'. Core::$CONTROLLER .'/allpages.php';
+
+    if ($_GET['page'] === 'ajax') {
+        include './'. Core::$CONTROLLER .'/'. $_GET['module'] .'/'. $_GET['page'] .'.php';
+        exit();
+    }
+
     if(!file_exists('./'. Core::$CONTROLLER .'/'. $_GET['module'] .'/'. $_GET['page'] .'.php') || !file_exists('./skins/'.Core::$SKIN.'/'.$_GET['module'] .'/'. $_GET['page'] .'.tpl')) {
         header("Location: /404");
         exit();
@@ -40,8 +46,6 @@ ob_start();
     $content = ob_get_contents();
 
 ob_end_clean();
-
-
 
 include_once './skins/'.Core::$SKIN.'/index.tpl';
 

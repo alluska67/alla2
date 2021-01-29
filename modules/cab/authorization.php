@@ -1,11 +1,10 @@
 <?php
 //Core::$JS = '<script type="text/javascript" src="skins/default/js/scripts_v1.js"></script>';
 
-//$uri = $_SERVER['REQUEST_URI'];
-//wtf($uri,1);
-if (isset($_POST['login'], $_POST['password']) && mb_strlen($_POST['password']) >5) {
 
- //wtf($_POST,1);
+if (isset($_POST['login'], $_POST['password']) && mb_strlen($_POST['password']) > 5) {
+
+
     $res = q("
         SELECT *
         FROM `users`
@@ -62,9 +61,8 @@ if (isset($_POST['login'], $_POST['password']) && mb_strlen($_POST['password']) 
         $errors = 'Нет пользователя с таким логином или паролем';
     }
 
-} else {
-    $errors = 'Вы допустили ошибку при введении данных. Попробуйте ещё раз';
-
+} elseif (empty($_POST['login']) || empty($_POST['password'])) {
+    $errors = 'Введите логин и пароль для авторизации на сайте';
 }
 
 

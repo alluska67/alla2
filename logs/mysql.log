@@ -1477,3 +1477,54 @@ Query:
 Table 'main.news' doesn't exist
 File: D:\OSPanel\domains\alla2\modules\news\main.phpLine:6Date: 2020-12-03 13:59:06============================================
 
+Query: 
+        SELECT *
+        FROM main.`comments`
+        WHERE id = Array
+    Unknown column 'Array' in 'where clause'
+File: D:\OSPanel\domains\alla2\modules\admin\goods\main.phpLine:68Date: 2021-01-29 13:32:25============================================
+
+Query: 
+        SELECT *
+        FROM main.`comments`
+        WHERE id = Array
+    Unknown column 'Array' in 'where clause'
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:64Date: 2021-01-29 13:37:11============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        LIMIT 10
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC
+        LIMIT 10' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-01-29 19:10:36============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        LIMIT 10
+        ORDER BY DESC
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY DESC' at line 5
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-01-29 19:11:20============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-01-29 19:13:09============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC;
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-01-29 19:14:20============================================
+

@@ -13,6 +13,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php if(count(Core::$CSS)) { echo implode("\n",Core::$CSS); } ?>
     <?php Core::$JS[] = '<script type="text/javascript" src="/skins/default/js/scripts_v1.js"></script>'; ?>
+    <script src="/skins/default/js/jquery.min.js"></script>
+    <script src="/skins/default/js/moment.min.js"></script>
     <?php if(count(Core::$JS)) { echo implode("\n",Core::$JS); } ?>
 </head>
 <body>
@@ -55,13 +57,13 @@
               <div id="auth_modal_open" class="authorization_modal"  style="display: none">
                 <div class="authorization_inside">
                   <?php if (!isset($status) || $status != 'Ok') { echo $errors ?? " "; ?>
-                    <form action="/cab/authorization" method="post" class="auth_form">
+                    <form action="/cab/authorization" method="post" class="auth_form" id="auth_form" onsubmit="authorizationCheck(); return false;">
 
-                      Login:<input class="cab_table" type="text" name="login"><br>
-                      Pass: <input class="cab_table" type="password" name="password"><br>
+                      Login:<input class="cab_table" type="text" name="login" id="login"><br>
+                      Pass: <input class="cab_table" type="password" name="password" id="password"><br>
                       <input type="hidden" name="uri" value="<?=$_SERVER['REQUEST_URI'];?>" >
-                      <input type="checkbox" value="autoauth" name="autoauth" id="autoauth1"><label for="autoauth1">Запомнить меня для автовхода</label><br>
-                      <input class="cab_table" type="submit" name="submit" value="Вход">
+                      <input type="checkbox" value="autoauth" name="autoauth" id="autoauth1"><label for="autoauth1" class="form_text">Запомнить</label><br>
+                      <input class="cab_table" type="submit" name="submit" value="Вход" id="submit" onclick="authorizationCheck();return false;">
                     </form>
                   <?php } ?>
                 </div>
@@ -102,7 +104,7 @@
     <div class="header_container_bottom">
       <div class="header_container_bottom_inside">
         <div class="logo">
-          <a href="/"><img src="/skins/<?=Core::$SKIN; ?>/img/logo.png" alt="logo"></a>
+          <a class="logo" href="/"><img src="/skins/<?=Core::$SKIN; ?>/img/logo.png" alt="logo"></a>
         </div>
         <div class="header_nav clearfix">
           <nav class="main_nav">
@@ -393,7 +395,7 @@
   </div>
 
   </footer>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </body>
