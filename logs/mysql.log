@@ -1528,3 +1528,180 @@ Query:
     You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
 File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-01-29 19:14:20============================================
 
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        LIMIT 10
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC
+        LIMIT 10' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:58:42============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        LIMIT 10
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC
+        LIMIT 10' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:58:46============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        LIMIT 10
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC
+        LIMIT 10' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:58:48============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        LIMIT 10
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC
+        LIMIT 10' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:58:52============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:58:53============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:58:54============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:58:55============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:58:58============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:58:58============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:59:01============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:59:04============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:59:07============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:59:09============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:59:10============================================
+
+Query: 
+        SELECT *
+        FROM `comments`
+        
+        ORDER BY DESC
+        
+        
+        
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:9Date: 2021-02-02 15:59:14============================================
+
+Query: 
+                INSERT INTO `comments` SET
+                `name` = 'Алла Горовая',
+                `email`= 'alluska67@gmail.com',
+                `text` = 'vadvfdva',
+                You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 4
+File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:52Date: 2021-02-02 16:12:39============================================
+

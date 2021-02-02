@@ -1559,27 +1559,6 @@ fileholder
 }
 
 
-#ajax {
-  background-color: #fff;
-  background-image: url("/skins/default/img/Loading.gif");
-  background-position: center top ;
-  background-repeat: no-repeat;
-  border: 1px solid #c608c3;
-  border-radius: 10px;
-  display: none;
-  left: 50%;
-  padding: 56px 10px 10px;
-  position: fixed;
-  text-align: center;
-  top: 50%;
-  width: 100px;
-  vertical-align: bottom;
-  z-index: 1200;
-}
 
-#ajax span {
-  font-size: 1.3em;
-  color: green;
-}
 
 
