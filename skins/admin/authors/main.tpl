@@ -1,5 +1,5 @@
 <div class="all_news_inside">
-  <?=$info ?? '' ;?>
+  <p style="margin-left: 157px;margin-top: 20px;color: #c608c3;"><?=$info ?? '' ;?></p>
   <a class="btn btn-success" href="/admin/authors/add">Добавить автора</a>
   <h2 class="text-info border  h2_right_news" >Всего авторов <?=count($authors);?>:</h2>
   <form action="" method="post">

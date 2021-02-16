@@ -69,7 +69,9 @@ header {
   content: "";
   clear: both;
 }
-
+.contact_block_top {
+  width: 244px;
+}
 .sprite {
   background-image: url("/skins/default/img/spritesheet.png");
   background-repeat: no-repeat;
@@ -95,7 +97,6 @@ header {
 
 .container_top {
   width: 1160px;
-  padding: 0 20px 0 20px;
 }
 
 .header_container_top1 {
@@ -469,8 +470,10 @@ h1 {
 .table_top {
   width: 268px;
   height: 207px;
-  padding: 65px 45px 58px 45px;
+  /*padding: 65px 45px 58px 45px;*/
   border: 1px solid #e3e2e7;
+  padding: 7px 8px 2px 8px;
+
 }
 
 .table_central {
@@ -1557,8 +1560,72 @@ fileholder
   font-size: 1.3em;
   color: green;
 }
+a .link_email {
+  color: #c608c3;
+  text-align: center;
+  font-size: 14px;
+}
+
+
+.wraper {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+.profit {
+  padding:15px 0;
+  background: #603A4E;
+}
+
+.profit .row {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.profit .item {
+  text-align: center;
+  margin: 15px;
+  width: calc(25% - 30px);
+}
+.profit .item .subtitle {
+  color: #c608c3;
+  margin: 3px 0;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1020px) {
+  .profit .item {
+    width: calc(100% / 12 *5 - 30px);
+  }
+}
+
+@media screen and (max-width: 759px) {
+  .profit .item {
+    width: calc(100% / 12 *6 - 30px);
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .profit .item {
+    width: calc(100% - 30px);
+  }
+}
 
 
 
+/*.item {*/
+/*  display:flex;*/
+/*  flex-wrap: wrap;*/
+/*  justify-content: center;*/
+/*  box-sizing: border-box;*/
+/*  text-align: center;*/
+/*  margin: 15px;*/
+/*  width: calc(100% /12 * 3 - 30px);*/
+/*}*/
 
-
+/*@media screen and (min-width: 920px) {*/
+/*  .item {*/
+/*    width: calc(100% /12 * 4 - 30px);*/
+/*  }*/
+/*}*/

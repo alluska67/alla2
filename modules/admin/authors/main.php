@@ -92,6 +92,7 @@ while ($author_row = $authors_res->fetch_assoc()) {
     $authors[] = $author_row;
 }
 
+
 Paginator::count($query_count);
 //создание пути для пагинации
 $uri = $_SERVER['REQUEST_URI'];

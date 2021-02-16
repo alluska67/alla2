@@ -51,10 +51,10 @@ if (isset($_POST['title'],$_POST['description'], $_POST['pages'],$_FILES['file']
         if($_POST['author'] != '') {
             foreach ($_POST['author'] as $authors_id) {
                 q("
-                INSERT INTO `authors_books` SET
-                `books_id`        = " . (int)$books_id . ",
-                `authors_id`      = " . (int)$authors_id . "
-            ");
+                    INSERT INTO `authors_books` SET
+                    `books_id`        = " . (int)$books_id . ",
+                    `authors_id`      = " . (int)$authors_id . "
+                ");
             }
         }
 

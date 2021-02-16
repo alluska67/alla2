@@ -39,8 +39,17 @@ function ajax() {
 
     });
 }
-
-
+// function escapeHtml(text) {
+//     var map = {
+//         '&': '&amp;',
+//         '<': '&lt;',
+//         '>': '&gt;',
+//         '"': '&quot;',
+//         "'": '&#039;'
+//     };
+//
+//     return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+// }
 function printComment(data) {
     $('.comments_top').prepend(
         '<div class="comments_top_incide">\n' +

@@ -1,6 +1,7 @@
 <?php if(isset($_SESSION['user']) && $_SESSION['user']['access'] != 5) { ?>
+  <p style="margin-left: 157px;margin-top: 20px;color: #c608c3;"><?=$info ?? '' ;?></p>
   <div class="all_news_inside">
-    <?=$info ?? '' ;?>
+    <a class="btn btn-success" href="/admin/news/category_add">Добавить категорию</a>
     <a class="btn btn-success" href="/admin/news/add">Добавить новость</a>
       <form action="" method="get " class="select_form">
         <select name="news_category"  class="custom-select col-md-4">

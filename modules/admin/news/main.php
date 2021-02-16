@@ -68,7 +68,7 @@ if (isset($_GET['news_category']) && $_GET['submit']) {
         FROM `all_news`
         JOIN news_category nc on nc.id_cat = all_news.category_id
         WHERE `category_id` = " . (int)Paginator::$category . "
-        ORDER BY `date` ASC 
+        ORDER BY `date` DESC 
     ");
 
 } else {
@@ -81,7 +81,7 @@ if (isset($_GET['news_category']) && $_GET['submit']) {
         SELECT all_news.*, nc.title_cat
         FROM `all_news`
         JOIN news_category nc on nc.id_cat = all_news.category_id
-        ORDER BY `date` ASC 
+        ORDER BY `date` DESC 
     ");
 }
 Paginator::count($query_count);

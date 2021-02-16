@@ -31,6 +31,7 @@ if (isset($_POST['title'],$_POST['description'], $_POST['category'], $_POST['tex
 
     if (!count($errors)) {
 
+
         //удаление лишних пробелов
         $_POST = trimAll($_POST);
 

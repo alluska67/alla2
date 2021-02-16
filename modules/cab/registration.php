@@ -61,16 +61,14 @@ if (isset($_POST['login'], $_POST['password'], $_POST['email'], $_POST['age'])) 
         Mail::$to = $_POST['email'];
         Mail::$subject = 'Вы зарегестрировались на сайте';
         Mail::$text = '
-        Если это сообщение пришло вам по ошибке, то проигнорируйте его.
-        Если это вы регестрировались на сайте , то пройдите по ссылке для активации Вашего аккаунта: '.Core::$DOMAIN.'index.php?module=cab&page=activate&id='.$id.'&hash='.$hash.'
-        ';
+        <p style="font-size: 14px;">Если это сообщение пришло вам по ошибке, то проигнорируйте его.<br>
+        Если это вы регестрировались на сайте , то пройдите по ссылке для активации Вашего аккаунта:</p>'
+        .'<a href="'.Core::$DOMAIN.'/index.php?module=cab&page=activate&id='.$id.'&hash='.$hash.'" style="color: #c608c3">Ссылка</a>';
         Mail::send();
         header("Location: /cab/registration");
         exit();
     }
 }
-
-
 
 
 

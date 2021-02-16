@@ -6,36 +6,37 @@
       <?php if(empty($authors_row['img'])) { ?>
         <span><img src="/uploaded/no_image.png" alt="" class="no_image"></span>
       <?php } else { ?>
-        <span><img src="<?='/uploaded/authors/'.htmlspecialchars($authors_row['img']); ?>" alt=""></span>
+        <span class="top_img"><img src="<?='/uploaded/authors/'.htmlspecialchars($authors_row['img']); ?>" alt=""></span>
         <span><a href="/admin/books/edit?action=delete_img&id=<?=(int)($authors_row['authors_id']); ?>"><img src="/skins/admin/img/delete.png" alt="delete photo" class="delete_icon"></a></span>
       <?php } ?>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 add_img">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupFileAddon01">Загрузить</span>
+            <span class="input-group-text" id="inputGroupFileAddon01"></span>
           </div>
           <div class="custom-file">
              <input type="file" name="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept="image/jpeg,image/jpg,image/png,image/gif,image/bmp">>
              <label class="custom-file-label" for="inputGroupFile01">Выберите изображение</label>
           </div>
         </div>
+        <p class="errors"><?=($errors ['files'] ?? " ");?></p>
     </div>
-      <?=($errors['files'] ?? " " ); ?>
-    <div class="row mx-md-n2">
+    <div class="row mx-md-n2 div_bottom">
       <p class="col-2">Имя автора *:</p>
       <div class="col-2"><input class="news_table" type="text" name="name" value="<?=htmlspecialchars($authors_row['name'] ?? " "); ?>"></div>
-      <?=($errors ['name'] ?? " ");?>
+        <p class="errors"><?=($errors ['name'] ?? " ");?></p>
     </div>
     <div class="row mx-md-n2">
       <p class="col-2">Краткая биография *:</p>
       <div class="col-2"><textarea class="news_table" name="biography" id="" cols="30" rows="10"><?=htmlspecialchars($authors_row['biography'] ?? " "); ?></textarea></div>
-      <?=($errors ['biography'] ?? " ");?>
+       <p class="errors"><?=($errors ['biography'] ?? " ");?></p>
     </div>
-    <div class="row mx-md-n2">
+    <div class="row mx-md-n2 div_bottom">
       <p class="col-2">Год рождения *:</p>
       <div class="col-2"><input class="news_table" name="years" value="<?=(int)$authors_row['years'] ?? " " ?>"></div>
-      <?=($errors ['years'] ?? " ");?>
+      <p class="errors"><?=($errors ['years'] ?? " ");?></p>
     </div>
     <input class="add_bottom" type="submit" name="edit" value="Отредактировать данные об авторе">
   </form>
 </div>
+
 

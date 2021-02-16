@@ -13,7 +13,7 @@ if (isset($_POST['last_id'])) {
     $response['data'] = [];
 
     while ($row_comments_visible = $comments_visible->fetch_assoc()) {
-        $response['data'][] = $row_comments_visible;
+        $response['data'][] = ht($row_comments_visible);
     }
 
     $response['status'] = 'success';

@@ -7,52 +7,51 @@
       <?php if(empty($row['img'])) { ?>
         <span><img src="/uploaded/no_image.png" alt="" class="no_image"></span>
       <?php } else { ?>
-        <span><img src="<?='/uploaded/news/'.htmlspecialchars($row['img']); ?>" alt=""></span>
+        <span class="top_img"><img src="<?='/uploaded/news/'.htmlspecialchars($row['img']); ?>" alt=""></span>
         <span><a href="/admin/news/edit?action=delete_img&id=<?=(int)($row['id']); ?>"><img src="/skins/admin/img/delete.png" alt="delete photo" class="delete_icon"></a></span>
       <?php } ?>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 add_img">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupFileAddon01">Загрузить</span>
+            <span class="input-group-text" id="inputGroupFileAddon01"></span>
           </div>
           <div class="custom-file">
              <input type="file" name="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept="image/jpeg,image/jpg,image/png,image/gif,image/bmp">>
              <label class="custom-file-label" for="inputGroupFile01">Выберите изображение</label>
           </div>
         </div>
-      <?=($errors['files'] ?? " " ); ?>
+      <p class="errors"><?=($errors ['files'] ?? " ");?></p>
     </div>
-    <div>
-      Заголовок новости *:
+    <div class="row mx-md-n2 div_bottom">
+      <p class="col-2">Заголовок новости *:</p>
       <input class="news_table" type="text" name="title" value="<?=htmlspecialchars($row['title']); ?>">
-      <?=($errors ['title'] ?? " "); ?>
+      <p class="errors"><?=($errors ['title'] ?? " ");?></p>
     </div>
-    <div>
-      Категория новости *:
-        <select class="border_thin" name="category">
+    <div class="row mx-md-n2 div_bottom">
+      <p class="col-2">Категория новости *:</p>
+        <select class="border_thin table_select" name="category">
           <option value="<?=htmlspecialchars($row['id_cat'])?>"><?=htmlspecialchars($row['title_cat']); ?></option>
             <?php while ($category = $news_category->fetch_assoc()) { ?>
               <?php if($category['title_cat'] == $row['title_cat']) { continue; } ?>
               <option value="<?= (int)$category['id_cat']?>"><?= htmlspecialchars($category['title_cat'])?></option>
             <?php } ?>
         </select>
-        <?=($errors ['category'] ?? " "); ?>
+        <p class="errors"><?=($errors ['category'] ?? " ");?></p>
     </div>
-    <div>
-      Автор *:
+    <div class="row mx-md-n2 div_bottom">
+      <p class="col-2">Автор *:</p>
       <input class="news_table" type="text" name="author" value="<?=htmlspecialchars($row['author']); ?>">
-      <?=($errors ['author'] ?? " "); ?>
+        <p class="errors"><?=($errors ['author'] ?? " ");?></p>
     </div>
-    <div>
-      Полный текст новости *:
-      <textarea  class="news_table" name="description" id="" cols="30" rows="10"><?=htmlspecialchars($row['description']); ?></textarea>
-      <?=($errors ['description'] ?? " "); ?>
+    <div class="row mx-md-n2 div_bottom">
+      <p class="col-2">Описание новости *:</p>
+      <textarea  class="news_table" name="description" id=""><?=htmlspecialchars($row['description']); ?></textarea>
+        <p class="errors"><?=($errors ['description'] ?? " ");?></p>
     </div>
-    <div>
-      Полный текст новости *:
-      <textarea  class="news_table" name="text" id="" cols="30" rows="10"><?=htmlspecialchars($row['text']); ?></textarea>
-      <?=($errors ['text'] ?? " "); ?>
+    <div class="row mx-md-n2 div_bottom">
+      <p class="col-2">Полный текст новости *:</p>
+      <textarea  class="news_table" name="text" id=""><?=htmlspecialchars($row['text']); ?></textarea>
+        <p class="errors"><?=($errors ['text'] ?? " ");?></p>
     </div>
-
     <input class="add_bottom" type="submit" name="edit" value="Отредактировать новость">
   </form>
 </div>
