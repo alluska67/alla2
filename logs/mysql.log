@@ -1705,3 +1705,116 @@ Query:
                 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 4
 File: D:\OSPanel\domains\alla2\modules\comments\ajax.phpLine:52Date: 2021-02-02 16:12:39============================================
 
+Query: 
+    SELECT *
+    FROM `authors`
+    ORDER BY `authors_id` ASC 
+    LIMIT 10
+ LIMIT 0 , 10You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 0 , 10' at line 5
+File: D:\OSPanel\domains\alla2\libs\class_Paginator.phpLine:27Date: 2021-02-16 20:13:58============================================
+
+Query: 
+    SELECT *
+    FROM `books`
+    WHERE `books_id` =IN (1,2,3,4,8,9,63,65,74,75,76)
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IN (1,2,3,4,8,9,63,65,74,75,76)' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:82Date: 2021-02-17 16:46:46============================================
+
+Query: 
+        SELECT `books_id`
+        FROM `authors_books`
+        WHERE `authors_id` IN 1
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:117Date: 2021-02-18 12:14:50============================================
+
+Query: 
+        SELECT *
+        FROM `authors_books`
+        WHERE `authors_id` IN (.1.)
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.)' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:117Date: 2021-02-18 12:16:21============================================
+
+Query: 
+        SELECT *
+        FROM `authors_books`
+        WHERE `authors_id` IN (Array)
+    Unknown column 'Array' in 'where clause'
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:118Date: 2021-02-18 12:18:37============================================
+
+Query: 
+        SELECT *
+        FROM `authors_books`
+        WHERE `authors_id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:116Date: 2021-02-18 16:05:16============================================
+
+Query: 
+        SELECT *
+        FROM `authors_books`
+        WHERE `authors_id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:116Date: 2021-02-18 16:05:26============================================
+
+Query: 
+        SELECT *
+        FROM `authors_books`
+        WHERE `authors_id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:118Date: 2021-02-18 16:12:30============================================
+
+Query: 
+        SELECT *
+        FROM `authors_books`
+        WHERE `authors_id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:117Date: 2021-02-18 16:15:28============================================
+
+Query: 
+        SELECT *
+        FROM `authors_books`
+        WHERE `authors_id` IN ()
+    You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:113Date: 2021-02-18 17:19:45============================================
+
+Query: 
+            SELECT *
+            FROM `books`
+            WHERE `books_id` IN ()
+        You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:136Date: 2021-02-18 18:25:41============================================
+
+Query: 
+    SELECT *
+    FROM `books`
+    WHERE `books_id` IN ()
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:131Date: 2021-02-18 18:35:45============================================
+
+Query: 
+    SELECT *
+    FROM `authors_books`
+    WHERE `authors_id` IN ()
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:161Date: 2021-02-18 19:56:22============================================
+
+Query: 
+    SELECT *
+    FROM `authors_books`
+    WHERE `authors_id` IN ()
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\authors\main.phpLine:179Date: 2021-02-18 20:15:50============================================
+
+Query: 
+    SELECT *
+    FROM `authors_books`
+    WHERE `books_id` IN ()
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 3
+File: D:\OSPanel\domains\alla2\modules\admin\books\main.phpLine:80Date: 2021-02-19 13:09:13============================================
+
+Query: 
+                    INSERT INTO `authors_books` SET
+                    `books_id`        = 77,
+                    `authors_id`      = 0
+                Cannot add or update a child row: a foreign key constraint fails (`main`.`authors_books`, CONSTRAINT `authors_books_ibfk_1` FOREIGN KEY (`authors_id`) REFERENCES `authors` (`authors_id`) ON DELETE RESTRICT ON UPDATE CASCADE)
+File: D:\OSPanel\domains\alla2\modules\admin\books\add.phpLine:56Date: 2021-02-19 13:24:07============================================
+
