@@ -15,8 +15,10 @@
           <div class="col-md-9">
             <div class="card-body">
               <p class="card-text"><small class="p-1 mb-2 bg-info text-white"><?=htmlspecialchars($book['date_edited'] ?? '') ;?></small></p><br>
-              <?php foreach ($book['author'] as $author) { ;?>
-                <h5 class="card-title"><?=htmlspecialchars($author) ;?></h5>
+              <?php if(isset($book['authors'])) {?>
+                <?php foreach ($book['authors'] as $author) { ;?>
+                  <h5 class="card-title"><?=htmlspecialchars($author['name']) ?? '';?></h5>
+                <?php }?>
               <?php }?>
               <h5 class="card-title"><a href="/books/show?action=show&book=<?=htmlspecialchars($book['books_id']); ?>"><?=htmlspecialchars(mb_strimwidth($book['title'], 0, 100,'...')); ?></a><br></h5>
               <p class="card-text"><?=htmlspecialchars(mb_strimwidth($book['description'], 0, 200,'...')); ?></p>

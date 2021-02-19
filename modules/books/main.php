@@ -64,33 +64,47 @@ $books_res = Paginator::q("
     ORDER BY `date` ASC 
 ");
 
+$books = $books_ids_select = [];
+while ($books_row = $books_res->fetch_assoc()) {
+    $books[$books_row['books_id']] = $books_row;
+}
+//собираем ключи массива(id)
+$books_ids_select = array_keys($books);
 
-$books = [];
-while ($book_row = $books_res->fetch_assoc()) {
+$books_ids_string = implode(',', $books_ids_select);
 
-    $authors_res = q("
-        SELECT *
-        FROM `authors_books`
-        WHERE `books_id` = " . (int)$book_row['books_id'] . "
-    ");
+$relations_res = q("
+    SELECT *
+    FROM `authors_books`
+    WHERE `books_id` IN (" . es($books_ids_string) . ")
+");
 
-    $authors_name = [];
-    while ($author_row = $authors_res->fetch_assoc()) {
+$authors_ids_select = $relations = [];
 
-        $res_author_name = q("
-            SELECT *
-            FROM `authors`
-            WHERE `authors_id` = '" . (int)$author_row['authors_id'] . "'
-        ");
-
-        while ($row_author_name = $res_author_name->fetch_assoc()) {
-            $authors_name[$row_author_name['authors_id']] = $row_author_name['name'];
-        }
-    }
-    $book_row['author'] = $authors_name;
-    $books[] = $book_row;
+//определяем связь ID Author vs ID Book
+while ($row = $relations_res->fetch_assoc()) {
+    $authors_ids_select[] = $row['authors_id'];
+    $relations[$row['books_id']][] = $row['authors_id'];
 }
 
+// Убрать лишние элементы в массиве
+$unique = array_unique($authors_ids_select);
+$authors_ids_string = implode(',', $unique);
+
+//Выбираем данные о авторе
+$res_author= q("
+    SELECT *
+    FROM `authors`
+    WHERE `authors_id` IN (" . es($authors_ids_string) . ")
+");
+
+while($row = $res_author->fetch_assoc()) {
+    foreach ($relations as $k => $v) {
+        if(in_array($row['authors_id'], $v)) {
+            $books[$k]['authors'][] = $row;
+        }
+    }
+}
 
 
 Paginator::count($query_count);

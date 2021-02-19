@@ -16,10 +16,11 @@
             <div class="card-body">
               <h5 class="card-title"><a href="/authors/show?action=show&author=<?=htmlspecialchars($author['authors_id']); ?>"><?=htmlspecialchars($author['name']); ?></a><br></h5>
               <p class="card-text"><small class="p-1 mb-2 bg-light ">Год рождения:<?=(int)$author['years'] ?> </small></p><br>
-              <p class="card-text"><?=htmlspecialchars(mb_strimwidth($author['biography'], 0, 200,'...')); ?></p>
-              <p>Произведения автора:</p>
-              <?php foreach ($author['book'] as $book) { ;?>
-                <p class="card-text"><small class="p-1 mb-2 bg-info text-white"><?=htmlspecialchars($book) ;?></small></p>
+              <p class="card-text"><?=htmlspecialchars(mb_strimwidth($author['biography'], 0, 200,'...')); ?></p>                   <?php if(isset($author['books'])) {?>
+                <p>Произведения автора:</p>
+                <?php foreach ($author['books'] as $book) {;?>
+                  <p class="card-text"><small class="p-1 mb-2 bg-info text-white"><?=htmlspecialchars($book['title'] ?? '') ;?></small></p>
+                  <?php }?>
               <?php }?>
             </div>
           </div>
