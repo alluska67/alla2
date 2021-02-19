@@ -39,7 +39,6 @@
     <div class="row mx-md-n2 div_bottom">
       <p class="col-2">Автор *:</p>
       <select multiple name="author[]" class="news_table_select">
-          <option value="" selected>Выберите авторов</option>
             <?php foreach ($choose_author as $author_name['authors_id'] =>$author_name['name']) { //wtf($choose_author);?>
 <!--              --><?php //if($author_name['authors_id'] == htmlspecialchars($author['id'])) { continue; } ?>
                 <option value="<?=(int)$author_name['authors_id']?>"><?=htmlspecialchars($author_name['name']);?></option>

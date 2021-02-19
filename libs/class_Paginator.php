@@ -11,7 +11,7 @@ class Paginator
 
     public static function count($query_count) {
         $row = $query_count->fetch_assoc();
-        self::$page_count = ceil($row['cnt'] / self::$num); // 9/4 ==3
+        self::$page_count = ceil($row['cnt'] / self::$num);
     }
 
     public static function q($query) {

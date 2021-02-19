@@ -48,13 +48,13 @@ if (isset($_POST['name'],$_POST['biography'], $_POST['years'],$_FILES['file'], $
             if (!Upload::uploadImage($_FILES['file'], '/uploaded/authors/')) {
                 $_SESSION['info'] = Upload::$info['error'] ;
                 header('Location: /admin/authors/edit?id='.(int)$_GET['id']);
-                exit($_SESSION['info']);
+                exit();
             }
 
             if (!Upload::resize(Upload::$path_origin,Upload::$path,Upload::$temp , 150,150)) {
                 $_SESSION['info'] = Upload::$info['error'] ;
                 header('Location: /admin/authors/edit?id='.(int)$_GET['id']);
-                exit($_SESSION['info']);
+                exit();
             }
 
             $res = q("
